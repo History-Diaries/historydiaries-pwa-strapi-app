@@ -1,1 +1,1 @@
-declare module "react-card-carousel";
+declare module "rellax";

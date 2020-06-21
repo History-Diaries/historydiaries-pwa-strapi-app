@@ -320,18 +320,88 @@ html {
   height: 40px;
   margin: 0 10px;
 }
+.card {
+  background-color: #fff;
+  min-width: 100%;
+  min-height: 200px;
+  display: flex;
+  overflow-x: auto;
+  margin-bottom: 100px;
+}
+.card--content {
+  background-color: rgb(250, 250, 250);
+  min-width: 400px;
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+}
+.card::-webkit-scrollbar {
+  display: none;
+}
+.t-section {
+  width: 80%;
+  margin: auto;
+}
+
+.card-content {
+  padding: 30px;
+}
+.quotes {
+  color: #ffc856;
+  font-family: var(--fb);
+}
+.t-text {
+  color: #8d91a3;
+}
+q:before {
+  content: open-quote;
+  font-size: 3em;
+  color: #ffc856;
+}
+
+q:after {
+  content: close-quote;
+  font-size: 3em;
+  color: #ffc856;
+}
+
+.circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  background-color: #ffc856;
+  position: absolute;
+  top: 70%;
+  left: 7%;
+}
 @media (max-width: 800px) {
+  .circle {
+    width: 50px;
+    height: 50px;
+    top: 80%;
+  }
+  .t-text {
+    font-size: 16px;
+  }
+  .card--content {
+    min-width: 200px;
+  }
+  .card-content {
+    padding: 20px;
+  }
   .team-mate {
     width: 100%;
   }
   .banner-text {
-    font-size: 1.2em;
+    font-size: 1em;
   }
+
   .banner-cont {
     width: 80%;
   }
   .c-btn {
-    transform: scale(0.8);
+    margin-top: 10px;
+    transform: scale(0.65);
   }
   .no-mobile {
     display: none;

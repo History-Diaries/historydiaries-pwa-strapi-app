@@ -2,14 +2,18 @@ import React from "react";
 import Vision from "../Assets/Images/idea.svg";
 import Mission from "../Assets/Images/goal.svg";
 import Footer from "./Footer";
-
+import Testimonial from "./Testimonial";
+import Rellax from "rellax";
 interface Props {}
 
 const Home = (props: Props) => {
   const handleScrollerClick = () => {
     window.scrollTo(500, 850);
   };
-
+  React.useEffect(() => {
+    var rellax = new Rellax(".rellax");
+    console.log(rellax);
+  }, []);
   const team = [
     {
       name: "person",
@@ -46,10 +50,11 @@ const Home = (props: Props) => {
   ];
   return (
     <>
+      <div className="rellax circle" data-rellax-speed="7"></div>
       <div className="home">
         <div className="banner">
           <div className="banner-cont">
-            <p className="banner-text">
+            <p className="banner-text rellax" data-rellax-speed="4">
               "History Diaries" is an initiative to revamp the current
               pedagogical system of history through theatre, classroom
               investigative sessions, tours, drama.
@@ -162,6 +167,13 @@ const Home = (props: Props) => {
           </div>
         </div>
       </div>
+      <div className="t-section">
+        <div className="center">
+          <p className="heading ft-size-2 noborder">Testimonials</p>
+        </div>
+        <Testimonial />
+      </div>
+
       <Footer />
     </>
   );
