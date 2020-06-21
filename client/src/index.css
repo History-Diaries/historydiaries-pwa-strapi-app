@@ -1,13 +1,135 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: pulp-display-bold;
+  src: url("./Assets/Fonts/PulpDisplay-Bold.ttf");
+  font-weight: bold;
+}
+@font-face {
+  font-family: pulp-display-light;
+  src: url("./Assets/Fonts/PulpDisplay-Light.ttf");
+  font-weight: bold;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: pulp-display-medium;
+  src: url("./Assets/Fonts/PulpDisplay-Medium.ttf");
+  font-weight: bold;
+}
+:root {
+  --fb: pulp-display-bold;
+  --fl: pulp-display-light;
+  --fm: pulp-display-medium;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--fl);
+  font-size: 20px;
+  background: rgb(240, 240, 240);
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px 90px;
+}
+
+.nav-items {
+  display: flex;
+}
+
+.nav-item {
+  padding-left: 30px;
+  display: flex;
+  font-size: 15px;
+  align-items: center;
+}
+.nav-item {
+  cursor: pointer;
+}
+.n-btn {
+  color: white;
+  background: #ffc856;
+  padding: 16px 30px;
+  font-family: var(--fb);
+  border-radius: 8px;
+  transition: 0.5s;
+  font-size: 20px;
+}
+.n-btn:hover {
+  background: #ffd582;
+  cursor: pointer;
+}
+
+.brand {
+  font-family: var(--fb);
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  color: rgb(29, 29, 44);
+}
+
+.banner {
+  width: 100%;
+  background-color: #271e41;
+  height: 70vh;
+  border-radius: 30px;
+  box-shadow: 0 20px 44px 0 rgba(27, 36, 72, 0.26);
+}
+
+.home {
+  width: 91%;
+  margin: auto;
+}
+
+.section {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.subsection {
+  width: 50%;
+}
+.content {
+  width: 80%;
+}
+.heading {
+  font-size: 40px;
+  letter-spacing: -0.3;
+  font-family: var(--fb);
+  color: rgb(29, 29, 44);
+  line-height: 1.5;
+  width: max-content;
+  margin-bottom: 30px;
+  border-bottom: solid rgb(29, 29, 44) 10px;
+}
+.text-1 {
+  color: #8d91a3;
+  line-height: 1.6;
+  font-size: 20px;
+}
+
+.s-1 {
+  display: flex;
+  text-align: center !important;
+  align-items: center;
+  justify-content: center;
+}
+.mission-icon {
+  max-width: 30%;
+}
+.s-2 {
+  text-align: left;
+}
+
+.s-3 {
+  text-align: right;
+  justify-content: right;
 }
