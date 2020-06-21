@@ -45,7 +45,7 @@ const Home = (props: Props) => {
                 facilis impedit dignissimos fugit voluptatibus minima soluta
                 iusto rerum numquam sapiente laudantium nihil ut! Accusantium ad
                 amet, dolor porro vero ipsa quasi, quis alias quas nobis
-                delectus similique. Harum, aspernatur?
+                delectus similique. Harum, aspernatur
               </p>
             </div>
           </div>
