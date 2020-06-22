@@ -10,11 +10,18 @@ import Blog from "./Components/Blog";
 import GenericNotFound from "./Components/GenericNotFound";
 import BlogArticle from "./Components/BlogArticle";
 import { AnimatePresence } from "framer-motion";
+import SplashScreen from "./Components/SplashScreen";
+
 const App: React.FC = () => {
+  const [flag, setFlag] = React.useState(true);
   React.useEffect(() => {
+    setTimeout(() => {
+      setFlag(false);
+    }, 1500);
+
     window.scrollTo(0, 0);
   });
-
+  if (flag) return <SplashScreen />;
   return (
     <BrowserRouter>
       <StoreProvider>
