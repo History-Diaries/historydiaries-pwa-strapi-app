@@ -54,7 +54,7 @@ const Home = (props: Props) => {
       <div className="home">
         <div className="banner">
           <div className="banner-cont">
-            <p className="banner-text rellax" data-rellax-speed="4">
+            <p className="banner-text">
               "History Diaries" is an initiative to revamp the current
               pedagogical system of history through theatre, classroom
               investigative sessions, tours, drama.
@@ -121,27 +121,6 @@ const Home = (props: Props) => {
           </div>
         </div>
       </div>
-      <div className="team-section">
-        <div className="center">
-          <p className="heading color-white">Our Team</p>
-        </div>
-        <div className="team-profile">
-          {team.map((p, index) => (
-            <div key={index} className="team-mate">
-              <div className="team-image">
-                <img
-                  className="team-image"
-                  src="https://via.placeholder.com/150"
-                  alt="person"
-                />
-              </div>
-              <div>
-                <p className="mt-1">Person {index + 1}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
       <div className="data-section">
         <div className="center">
           <p className="heading ft-size-2 noborder">Our Impact</p>
@@ -167,6 +146,28 @@ const Home = (props: Props) => {
           </div>
         </div>
       </div>
+      <div id="out-team" className="team-section">
+        <div className="center">
+          <p className="heading color-white">Our Team</p>
+        </div>
+        <div className="team-profile">
+          {team.map((p, index) => (
+            <div key={index} className="team-mate">
+              <div className="team-image">
+                <img
+                  className="team-image"
+                  src="https://via.placeholder.com/150"
+                  alt="person"
+                />
+              </div>
+              <div>
+                <p className="mt-1">Person {index + 1}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <div className="t-section">
         <div className="center">
           <p className="heading ft-size-2 noborder">Testimonials</p>

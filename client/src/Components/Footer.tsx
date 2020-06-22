@@ -1,5 +1,5 @@
 import React from "react";
-
+import Logo from "../Assets/Images/Logo.png";
 interface Props {}
 
 const Footer = (props: Props) => {
@@ -7,27 +7,11 @@ const Footer = (props: Props) => {
     <>
       <div className="footer">
         <div className="footer-cont">
-          <p className="footer-heading">History Diaries</p>
-          <div className="social-media">
-            - social media icons -
-            {/* <div className="media">
-              <img
-                className="s-icon"
-                src="https://img.icons8.com/material/50/000000/facebook-new.png"
-              />
-            </div>
-            <div className="media">
-              <img
-                className="s-icon"
-                src="https://img.icons8.com/material/24/000000/instagram-new.png"
-              />
-            </div>
-            <div className="media">
-              <img
-                className="s-icon"
-                src="https://img.icons8.com/material/24/000000/twitter-squared.png"
-              />
-            </div> */}
+          <div>
+            <img className="footer-logo" src={Logo} alt="Logo-img" />
+          </div>
+          <div>
+            <p>-- social media icons --</p>
           </div>
         </div>
       </div>

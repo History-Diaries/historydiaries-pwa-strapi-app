@@ -1,4 +1,7 @@
 import React from "react";
+import Logo from "../Assets/Images/Logo.png";
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 interface Props {}
 
 const Navbar = (props: Props) => {
@@ -16,14 +19,36 @@ const Navbar = (props: Props) => {
   return (
     <>
       <div className="navbar">
-        <div className="brand">History Diaries</div>
+        <Link to="/">
+          <div className="brand">
+            <img className="logo" src={Logo} alt="Logo-Icon" />
+            History Diaries
+          </div>
+        </Link>
+
         <div className="nav-items no-mobile">
-          <div className="nav-item">About Us</div>
-          <div className="nav-item">Past Programs</div>
-          <div className="nav-item">Upcomming Programs</div>
-          <div className="nav-item">Contact</div>
           <div className="nav-item">
-            <span className="n-btn">Blog</span>
+            <HashLink className="color-secondary" to="/#out-team">
+              About Us
+            </HashLink>
+          </div>
+          <div className="nav-item">
+            <Link className="color-secondary" to="/past-programs">
+              Past Programs
+            </Link>
+          </div>
+          <div className="nav-item">
+            <Link to="/upcomming-programs">Upcomming Programs</Link>
+          </div>
+          <div className="nav-item">
+            <Link to="/contact">Contact</Link>
+          </div>
+          <div className="nav-item">
+            <span>
+              <Link className="n-btn" to="/blog">
+                Blog
+              </Link>
+            </span>
           </div>
         </div>
         <div className="no-desktop v-center">
