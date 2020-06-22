@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "./Footer";
 import { motion } from "framer-motion";
+import Modal from "react-modal";
 interface Props {}
+
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+  },
+};
 
 const PastPrograms = (props: Props) => {
   const itemRef = React.useRef(null);
@@ -39,6 +49,8 @@ const PastPrograms = (props: Props) => {
   };
   const dummy = [1, 2, 3, 4, 5];
   const EventCard = (index: number) => {
+    const [showModal, setModal] = React.useState(false);
+
     return (
       <div key={index}>
         <div className="e-card">
@@ -57,7 +69,20 @@ const PastPrograms = (props: Props) => {
             excepturi?
           </p>
           <div className="btn-cont">
-            <div className="c-btn trim">View more.</div>
+            <button
+              className="c-btn trim"
+              onClick={() => {
+                setModal(true);
+              }}
+            >
+              View more.
+            </button>
+            <Modal isOpen={showModal} contentLabel="Modal" style={customStyles}>
+              {index}
+              <button className="c-btn trim" onClick={() => setModal(false)}>
+                Close{" "}
+              </button>
+            </Modal>
           </div>
         </div>
       </div>
