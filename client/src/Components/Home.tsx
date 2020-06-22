@@ -50,7 +50,7 @@ const Home = (props: Props) => {
   ];
   return (
     <>
-      <div className="rellax circle" data-rellax-speed="7"></div>
+      <div className="rellax no-mobile circle" data-rellax-speed="7"></div>
       <div className="home">
         <div className="banner">
           <div className="banner-cont">

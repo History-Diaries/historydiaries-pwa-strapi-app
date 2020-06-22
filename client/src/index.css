@@ -392,7 +392,149 @@ a {
   color: #271e41;
 }
 
+/*---Past Program--- */
+.e-container {
+  width: 80%;
+  margin: auto;
+  margin-top: 80px;
+}
+.heading-2 {
+  color: #271e41;
+  font-size: 2.5em;
+  font-family: var(--fb);
+}
+.card-dialouge {
+  display: flex;
+  flex-direction: row;
+  margin-top: 80px;
+  height: 45vh;
+}
+.e-active {
+  background: #ffc856;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+.e-item:hover,
+.e-active:hover {
+  cursor: pointer;
+}
+.list-items {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px 20px;
+}
+.e-item {
+  font-size: 1.2em;
+}
+.e-banner {
+  width: 80%;
+  background-color: #271e41;
+  height: 100%;
+  border-radius: 30px;
+  box-shadow: 0 20px 44px 0 rgba(27, 36, 72, 0.26);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mt-3 {
+  margin-top: 80px;
+}
+.heading-3 {
+  font-size: 2em;
+  letter-spacing: -0.3;
+  font-family: var(--fb);
+  color: rgb(29, 29, 44);
+  line-height: 1;
+  margin-bottom: 30px;
+  width: max-content;
+  border-bottom: solid rgb(29, 29, 44) 10px;
+}
+.white {
+  color: white;
+}
+
+.e-card {
+  padding: 20px;
+  background-color: rgb(250, 250, 250);
+  border-radius: 8px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+  margin: 20px;
+  width: 300px;
+}
+.card-title {
+  font-size: 1.5em;
+  color: #271e41;
+  font-family: var(--fb);
+  margin-bottom: 15px;
+}
+.card-details {
+  color: #8d91a3;
+  font-size: 1em;
+  margin-top: 20px 0;
+}
+.event-image {
+  width: 100%;
+}
+.e-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+.btn-cont {
+  margin-top: -20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.trim {
+  padding: 15px;
+}
+.card-holder {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 @media (max-width: 800px) {
+  .card-holder {
+    width: 99%;
+    justify-content: center;
+  }
+  .btn-cont {
+    margin-top: 20px;
+  }
+  .trim {
+    font-size: 1.5em;
+  }
+
+  .roll {
+    background-color: #271e41;
+    border-radius: 15px;
+    color: white;
+    padding: 20px;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .list-items {
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    justify-content: center;
+    margin-top: 0;
+  }
+  .heading-3 {
+    font-size: 1.5em;
+    border-width: 0;
+  }
+  .e-item {
+    text-align: center;
+    padding: 5px;
+  }
   .circle {
     width: 50px;
     height: 50px;
@@ -483,5 +625,18 @@ a {
   }
   .data-cont {
     margin-top: 50px;
+  }
+  .card-dialouge {
+    margin-top: 0px !important;
+    height: 25vh;
+  }
+  .e-container {
+    margin-top: 0px;
+  }
+  .mt-3 {
+    margin-top: 20px;
+  }
+  .heading-2 {
+    font-size: 1.8em;
   }
 }

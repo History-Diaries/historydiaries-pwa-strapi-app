@@ -65,11 +65,46 @@ const Navbar = (props: Props) => {
       </div>
       <div className="mobile-menu no-desktop" ref={MobileMenu}>
         <div className="nav-items-mobile">
-          <div className="m-nav-item">About Us</div>
-          <div className="m-nav-item">Past Programs</div>
-          <div className="m-nav-item">Upcomming Programs</div>
-          <div className="m-nav-item">Contact</div>
-          <div className="m-nav-item m-btn">
+          <div
+            onClick={(e) => {
+              handleClick(e, handleMenu, MobileMenu);
+            }}
+            className="m-nav-item"
+          >
+            <HashLink className="color-secondary" to="/#out-team">
+              About Us
+            </HashLink>
+          </div>
+          <div
+            onClick={(e) => {
+              handleClick(e, handleMenu, MobileMenu);
+            }}
+            className="m-nav-item"
+          >
+            <Link to="/past-programs"> Past Programs</Link>
+          </div>
+          <div
+            onClick={(e) => {
+              handleClick(e, handleMenu, MobileMenu);
+            }}
+            className="m-nav-item"
+          >
+            <Link to="/upcomming-programs"> Upcomming Programs</Link>
+          </div>
+          <div
+            onClick={(e) => {
+              handleClick(e, handleMenu, MobileMenu);
+            }}
+            className="m-nav-item"
+          >
+            <Link to="/contact"> Contact</Link>
+          </div>
+          <div
+            onClick={(e) => {
+              handleClick(e, handleMenu, MobileMenu);
+            }}
+            className="m-nav-item m-btn"
+          >
             <span className="m-n-btn">Blog</span>
           </div>
         </div>
