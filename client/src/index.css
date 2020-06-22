@@ -311,7 +311,7 @@ html {
   height: 200px;
 }
 .social-media {
-  margin-top: 20px;
+  margin-top: -15px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -654,6 +654,7 @@ textarea {
 .social-icon {
   width: 30px;
   height: 30px;
+  margin: 0px 5px;
 }
 .splash {
   width: 100%;
