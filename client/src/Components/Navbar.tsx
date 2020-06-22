@@ -41,7 +41,7 @@ const Navbar = (props: Props) => {
             <Link to="/upcomming-programs">Upcomming Programs</Link>
           </div>
           <div className="nav-item">
-            <Link to="/contact">Contact</Link>
+            <Link to="/reach">Reach Us</Link>
           </div>
           <div className="nav-item">
             <span>
@@ -97,7 +97,7 @@ const Navbar = (props: Props) => {
             }}
             className="m-nav-item"
           >
-            <Link to="/contact"> Contact</Link>
+            <Link to="/reach"> Reach Us</Link>
           </div>
           <div
             onClick={(e) => {
@@ -105,7 +105,11 @@ const Navbar = (props: Props) => {
             }}
             className="m-nav-item m-btn"
           >
-            <span className="m-n-btn">Blog</span>
+            <span>
+              <Link className="m-n-btn" to="/blog">
+                Blog
+              </Link>
+            </span>
           </div>
         </div>
       </div>

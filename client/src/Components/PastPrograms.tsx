@@ -4,7 +4,6 @@ import Footer from "./Footer";
 interface Props {}
 
 const PastPrograms = (props: Props) => {
-  const [active, setActive] = React.useState();
   const itemRef = React.useRef(null);
   const [current, setCurrent] = React.useState("Workshops");
   const [items, setItems] = React.useState({
@@ -38,11 +37,11 @@ const PastPrograms = (props: Props) => {
       list: dupList,
     });
   };
-  const dummy = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const dummy = [1, 2, 3, 4, 5];
   const EventCard = (index: number) => {
     return (
-      <>
-        <div key={index} className="e-card">
+      <div key={index}>
+        <div className="e-card">
           <p className="card-title">Event Name</p>
           <div>
             <img
@@ -61,7 +60,7 @@ const PastPrograms = (props: Props) => {
             <div className="c-btn trim">View more.</div>
           </div>
         </div>
-      </>
+      </div>
     );
   };
 

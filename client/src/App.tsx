@@ -8,8 +8,12 @@ import PastPrograms from "./Components/PastPrograms";
 import Contact from "./Components/Contact";
 import Blog from "./Components/Blog";
 import GenericNotFound from "./Components/GenericNotFound";
+import BlogArticle from "./Components/BlogArticle";
 
 const App: React.FC = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <BrowserRouter>
       <StoreProvider>
@@ -22,9 +26,9 @@ const App: React.FC = () => {
             component={UpcommingPrograms}
           />
           <Route exact path="/past-programs" component={PastPrograms} />
-          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/reach" component={Contact} />
           <Route exact path="/blog" component={Blog} />
-          <Route exact path="/blog" component={Blog} />
+          <Route exact path="/blog/:id" component={BlogArticle} />
           <Route component={GenericNotFound} />
         </Switch>
       </StoreProvider>
