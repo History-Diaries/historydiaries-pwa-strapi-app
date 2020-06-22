@@ -9,28 +9,31 @@ import Contact from "./Components/Contact";
 import Blog from "./Components/Blog";
 import GenericNotFound from "./Components/GenericNotFound";
 import BlogArticle from "./Components/BlogArticle";
-
+import { AnimatePresence } from "framer-motion";
 const App: React.FC = () => {
   React.useEffect(() => {
     window.scrollTo(0, 0);
   });
+
   return (
     <BrowserRouter>
       <StoreProvider>
         <Navbar />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route
-            exact
-            path="/upcomming-programs"
-            component={UpcommingPrograms}
-          />
-          <Route exact path="/past-programs" component={PastPrograms} />
-          <Route exact path="/reach" component={Contact} />
-          <Route exact path="/blog" component={Blog} />
-          <Route exact path="/blog/:id" component={BlogArticle} />
-          <Route component={GenericNotFound} />
-        </Switch>
+        <AnimatePresence>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route
+              exact
+              path="/upcomming-programs"
+              component={UpcommingPrograms}
+            />
+            <Route exact path="/past-programs" component={PastPrograms} />
+            <Route exact path="/reach" component={Contact} />
+            <Route exact path="/blog" component={Blog} />
+            <Route exact path="/blog/:id" component={BlogArticle} />
+            <Route component={GenericNotFound} />
+          </Switch>
+        </AnimatePresence>
       </StoreProvider>
     </BrowserRouter>
   );

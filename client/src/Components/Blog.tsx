@@ -1,15 +1,22 @@
 import React from "react";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 interface Props {}
 
 const Blog = (props: Props) => {
   React.useEffect(() => {
-    window.scrollTo(0, 0);
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 200);
   });
   const list = [1, 2, 3, 4, 5];
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, y: 200 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0 }}
+    >
       <div className="home mt-b">
         <div className="banner h-1">
           <div className="banner-cont">
@@ -56,7 +63,7 @@ const Blog = (props: Props) => {
         </div>
       </div>
       <Footer />
-    </>
+    </motion.div>
   );
 };
 

@@ -645,7 +645,31 @@ textarea {
 .more-article {
   margin-bottom: 30px;
 }
+.submit-btn {
+  padding: 20px 30px !important;
+}
+.card-details {
+  margin-top: 20px;
+}
 @media (max-width: 800px) {
+  .blog-title {
+    font-size: 20px;
+    width: 100%;
+  }
+  .date {
+    font-size: 14px;
+  }
+  .blog-content-2 {
+    width: 98%;
+    margin-top: 30px;
+    font-size: 16px;
+  }
+  .blog-list {
+    margin-top: 10px;
+  }
+  .more-article {
+    transform: scale(0.7);
+  }
   .blog-item {
     flex-direction: column;
   }
@@ -664,7 +688,6 @@ textarea {
   }
   .m-btn {
     width: 100% !important;
-    padding: 20px 30px !important;
     font-size: 1.4em !important;
   }
   .btn-cont {

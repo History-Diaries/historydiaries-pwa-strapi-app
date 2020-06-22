@@ -1,11 +1,16 @@
 import React from "react";
 import Join from "../Assets/Images/join.svg";
 import Footer from "./Footer";
+import { motion } from "framer-motion";
 interface Props {}
 
 const Contact = (props: Props) => {
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, y: 200 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0 }}
+    >
       <div className="home">
         <div className="banner h-1">
           <div className="banner-cont">
@@ -55,12 +60,12 @@ const Contact = (props: Props) => {
             <textarea name="idea" required />
           </div>
           <div className="btn-cont">
-            <div className="c-btn m-btn">Submit</div>
+            <div className="c-btn m-btn submit-btn">Submit</div>
           </div>
         </form>
       </div>
       <Footer />
-    </>
+    </motion.div>
   );
 };
 

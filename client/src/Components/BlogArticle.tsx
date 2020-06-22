@@ -1,13 +1,13 @@
 import React from "react";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 interface Props {}
 
 const styleBanner = {
   width: "100%",
   height: "70vh",
   borderRadius: "30px",
-  boxShadow: "0 20px 44px 0 rgba(27, 36, 72, 0.26)",
   backgroundSize: "cover",
   backgroundRepeat: "repeat-y",
   backgroundPosition: "center",
@@ -18,7 +18,11 @@ const BlogArticle = (props: Props) => {
     window.scrollTo(0, 0);
   });
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, y: 200 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0 }}
+    >
       <div className="home">
         <div style={styleBanner}></div>
         <div className="blog-title">
@@ -28,7 +32,7 @@ const BlogArticle = (props: Props) => {
             Omnis, sunt?
           </p>
         </div>
-        <div className="center mt-1">
+        <div className="date center mt-1">
           <i className="fa fa-calendar m-a" aria-hidden="true"></i> &nbsp;
           &nbsp;
           <p>26 Jan, 2020. 5:30pm</p>
@@ -129,7 +133,7 @@ const BlogArticle = (props: Props) => {
         </div>
       </div>
       <Footer />
-    </>
+    </motion.div>
   );
 };
 

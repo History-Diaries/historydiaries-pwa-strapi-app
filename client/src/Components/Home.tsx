@@ -4,6 +4,8 @@ import Mission from "../Assets/Images/goal.svg";
 import Footer from "./Footer";
 import Testimonial from "./Testimonial";
 import Rellax from "rellax";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 interface Props {}
 
 const Home = (props: Props) => {
@@ -49,7 +51,11 @@ const Home = (props: Props) => {
     },
   ];
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0 }}
+    >
       <div className="rellax no-mobile circle" data-rellax-speed="7"></div>
       <div className="home">
         <div className="banner">
@@ -60,7 +66,12 @@ const Home = (props: Props) => {
               investigative sessions, tours, drama.
             </p>
             <div className="center">
-              <div className="c-btn">Upcoming Events</div>
+              <div className="c-btn">
+                <Link className="c-btn" to="/upcomming-programs">
+                  {" "}
+                  Upcoming Events
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -176,7 +187,7 @@ const Home = (props: Props) => {
       </div>
 
       <Footer />
-    </>
+    </motion.div>
   );
 };
 

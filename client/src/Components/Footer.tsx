@@ -11,7 +11,7 @@ const Footer = (props: Props) => {
             <img className="footer-logo" src={Logo} alt="Logo-img" />
           </div>
           <div>
-            <p>-- social media icons --</p>
+            <i className="fa fa-twitter-square" aria-hidden="true"></i>
           </div>
         </div>
       </div>

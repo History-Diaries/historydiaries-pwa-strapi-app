@@ -1,6 +1,6 @@
 import React from "react";
 import Footer from "./Footer";
-
+import { motion } from "framer-motion";
 interface Props {}
 
 const PastPrograms = (props: Props) => {
@@ -65,7 +65,11 @@ const PastPrograms = (props: Props) => {
   };
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, y: 200 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0 }}
+    >
       <p className="heading-3 roll no-desktop">Past Programs</p>
       <div className="e-container">
         <div className="card-dialouge">
@@ -91,7 +95,7 @@ const PastPrograms = (props: Props) => {
       </div>
       <div className="card-holder">{dummy.map((e, i) => EventCard(i))}</div>
       <Footer />
-    </>
+    </motion.div>
   );
 };
 
