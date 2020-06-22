@@ -2,6 +2,7 @@ import React from "react";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 interface Props {}
 
 const styleBanner = {
@@ -23,8 +24,16 @@ const BlogArticle = (props: Props) => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0 }}
     >
+      <div></div>
       <div className="home">
-        <div style={styleBanner}></div>
+        <div className="center">
+          <LazyLoadImage
+            alt={"blog-image"}
+            effect="blur"
+            className="banner no-shadow"
+            src={"https://via.placeholder.com/1920x1080"} // use normal <img> attributes as props
+          />
+        </div>
         <div className="blog-title">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus,
@@ -52,9 +61,9 @@ const BlogArticle = (props: Props) => {
             praesentium voluptate reprehenderit exercitationem debitis deleniti
             omnis doloremque. Necessitatibus perferendis amet ab eius laudantium
             ducimus sunt voluptatem fugiat alias delectus officia nemo, et
-            <p>
-              <br />
-            </p>
+          </p>
+          <br />
+          <p>
             distinctio voluptates sapiente pariatur exercitationem! Earum natus
             delectus maxime, repudiandae fuga quo impedit! Natus, harum? Quasi
             saepe consectetur nesciunt ab reiciendis fuga voluptatem nostrum
