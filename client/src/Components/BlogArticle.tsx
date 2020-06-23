@@ -3,12 +3,14 @@ import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import axios from "axios";
+import ReactMarkdown from "react-markdown";
 interface Props {}
 
 const BlogArticle = (props: Props) => {
   React.useEffect(() => {
     window.scrollTo(0, 0);
-  });
+  }, []);
   return (
     <motion.div
       initial={{ opacity: 0, y: 200 }}
@@ -26,11 +28,7 @@ const BlogArticle = (props: Props) => {
           />
         </div>
         <div className="blog-title">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus,
-            fugit. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Omnis, sunt?
-          </p>
+          <p>Blog Title here</p>
         </div>
         <div className="date center mt-1">
           <i className="fa fa-calendar m-a" aria-hidden="true"></i> &nbsp;
