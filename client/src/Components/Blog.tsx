@@ -38,7 +38,7 @@ const Blog = (props: Props) => {
                 <img
                   className="blog-list-image"
                   src="https://via.placeholder.com/150"
-                  alt="blog-image"
+                  alt="blog"
                 />
               </div>
               <div className="blog-content">

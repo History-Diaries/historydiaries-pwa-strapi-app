@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Footer from "./Footer";
 import { motion } from "framer-motion";
 
@@ -49,7 +49,7 @@ const PastPrograms = (props: Props) => {
             <img
               className="event-image"
               src="https://via.placeholder.com/150"
-              alt="event-img"
+              alt="event"
             />
           </div>
           <p className="card-details">
@@ -59,7 +59,7 @@ const PastPrograms = (props: Props) => {
             excepturi?
           </p>
           <div className="btn-cont">
-            <div>View more.</div>
+            <div className="c-btn m-btn">View more.</div>
           </div>
         </div>
       </div>

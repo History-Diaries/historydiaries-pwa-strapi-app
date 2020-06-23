@@ -16,24 +16,24 @@ const Footer = (props: Props) => {
           </div>
           <div className="social-media">
             <div>
-              <a href="">
+              <a href="https://www.facebook.com/HistoryDiaries">
                 <img
                   className="social-icon"
                   src={Facebook}
                   alt="facebook-icon"
                 />
               </a>
-              <a href="">
+              <a href="https://www.facebook.com/HistoryDiaries">
                 <img
                   className="social-icon"
                   src={Instagram}
                   alt="instagram-icon"
                 />
               </a>
-              <a href="">
+              <a href="https://www.facebook.com/HistoryDiaries">
                 <img className="social-icon" src={Twitter} alt="twitter-icon" />
               </a>
-              <a href="">
+              <a href="https://www.facebook.com/HistoryDiaries">
                 <img
                   className="social-icon"
                   src={LinkedIn}
