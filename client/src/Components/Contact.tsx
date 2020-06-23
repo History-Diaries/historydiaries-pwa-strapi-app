@@ -2,9 +2,57 @@ import React from "react";
 import Join from "../Assets/Images/join.svg";
 import Footer from "./Footer";
 import { motion } from "framer-motion";
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import { API } from "../config";
 interface Props {}
 
 const Contact = (props: Props) => {
+  const [state, setState] = React.useState({
+    message: "",
+    loading: false,
+  });
+  const { handleSubmit, reset, register, errors } = useForm({
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      idea: "",
+    },
+  });
+  const onSubmit = async (values: any) => {
+    const { name, email, idea, phone }: any = values;
+    const config = {
+      headers: {
+        "content-type": "application/json",
+      },
+    };
+    const body = JSON.stringify({
+      Name: name,
+      Idea: idea,
+      Phone: phone,
+      Email: email,
+    });
+    setState({
+      loading: true,
+      message: "Submitting",
+    });
+    try {
+      const response = await axios.post(`${API}/ideas`, body, config);
+      reset();
+      if (response.status == 200) {
+        setState({
+          loading: false,
+          message: "Submitted",
+        });
+      }
+    } catch (error) {
+      setState({
+        loading: false,
+        message: "Error occured",
+      });
+    }
+  };
   return (
     <motion.div
       initial={{ opacity: 0, y: 200 }}
@@ -38,31 +86,69 @@ const Contact = (props: Props) => {
         <p className="heading-3 mt-3"> Share your idea!</p>
       </div>
       <div className="idea">
-        <form className="form">
+        <form className="form" onSubmit={handleSubmit(onSubmit)}>
           <div className="form-item">
             <label htmlFor="name">Name</label>
             <br />
-            <input type="text" name="name" required />
+            <input
+              type="text"
+              name="name"
+              ref={register({
+                required: "Required",
+              })}
+            />
+            <p className="c-red"> {errors.name && errors.name.message}</p>
           </div>
           <div className="form-item">
             <label htmlFor="email">Email Address</label>
             <br />
-            <input type="text" name="email" required />
+            <input
+              type="text"
+              name="email"
+              ref={register({
+                required: "Required",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                  message: "invalid email address",
+                },
+              })}
+            />
+            <p className="c-red"> {errors.email && errors.email.message}</p>
           </div>
           <div className="form-item">
             <label htmlFor="phone">Phone Number</label>
             <br />
-            <input type="text" name="phone" required />
+            <input
+              type="text"
+              name="phone"
+              ref={register({
+                required: "Required",
+                pattern: {
+                  value: /^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$/i,
+                  message: "invalid phone number",
+                },
+              })}
+            />
+            <p className="c-red"> {errors.phone && errors.phone.message}</p>
           </div>
           <div className="form-item">
             <label htmlFor="phone">Share your idea</label>
             <br />
-            <textarea name="idea" required />
+            <textarea
+              name="idea"
+              ref={register({
+                required: "Required",
+              })}
+            />
+            <p className="c-red"> {errors.idea && errors.idea.message}</p>
           </div>
           <div className="btn-cont">
-            <div className="c-btn m-btn submit-btn">Submit</div>
+            <button className="n-btn c-btn m-btn submit-btn">Submit</button>
           </div>
         </form>
+        <div className="center">
+          {state.message ? <p>{state.message}</p> : null}
+        </div>
       </div>
       <Footer />
     </motion.div>

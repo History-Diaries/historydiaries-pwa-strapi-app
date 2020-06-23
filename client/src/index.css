@@ -748,6 +748,9 @@ textarea {
   text-align: center;
   padding: 20px !important;
 }
+.n-btn {
+  border: none;
+}
 .t-def {
   margin-top: 10px;
   color: #ffc856;
@@ -757,6 +760,9 @@ textarea {
   color: #8d91a3;
   font-size: 1em;
   opacity: 0.8;
+}
+.c-red {
+  color: rgb(216, 64, 64);
 }
 
 .reactMarkdown > p,
