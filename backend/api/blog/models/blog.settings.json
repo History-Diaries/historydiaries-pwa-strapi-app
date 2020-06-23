@@ -29,9 +29,6 @@
       ],
       "plugin": "upload",
       "required": true
-    },
-    "Date": {
-      "type": "datetime"
     }
   }
 }
