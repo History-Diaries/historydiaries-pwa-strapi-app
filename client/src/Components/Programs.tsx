@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Footer from "./Footer";
 import { motion } from "framer-motion";
-import Modal from "react-modal";
+
 interface Props {}
 
 const PastPrograms = (props: Props) => {
@@ -41,8 +41,6 @@ const PastPrograms = (props: Props) => {
   const dummy = [1, 2, 3, 4, 5];
 
   const EventCard = (index: number) => {
-    const [showModal, setModal] = React.useState(false);
-
     return (
       <div key={index}>
         <div className="e-card">
@@ -61,39 +59,7 @@ const PastPrograms = (props: Props) => {
             excepturi?
           </p>
           <div className="btn-cont">
-            <div
-              className="c-btn trim"
-              onClick={() => {
-                setModal(true);
-              }}
-            >
-              View more.
-            </div>
-            <Modal isOpen={showModal} contentLabel="Modal">
-              <div className="modal-cont">
-                <div className="right-push">
-                  <div
-                    className="c-btn trim cross"
-                    onClick={() => setModal(false)}
-                  >
-                    ×
-                  </div>
-                </div>
-                <p className="heading-4">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                </p>
-                <p className="c-grey">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
-                  corrupti, perferendis dolorum obcaecati, ipsam autem inventore
-                  veritatis laudantium minima sit sapiente odit soluta nostrum?
-                  Officiis molestiae nostrum nesciunt vero quas. Lorem ipsum
-                  dolor sit amet, consectetur adipisicing elit. Cumque,
-                  blanditiis. Corrupti dignissimos tempora temporibus modi fugit
-                  dolor earum repellat rerum asperiores tempore iusto, veritatis
-                  autem natus ex. Molestiae, in sapiente!
-                </p>
-              </div>
-            </Modal>
+            <div>View more.</div>
           </div>
         </div>
       </div>

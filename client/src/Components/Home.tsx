@@ -1,14 +1,18 @@
 import React from "react";
+import Rellax from "rellax";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import Modal from "react-modal";
+
 import Vision from "../Assets/Images/idea.svg";
 import Mission from "../Assets/Images/goal.svg";
 import Footer from "./Footer";
 import Testimonial from "./Testimonial";
-import Rellax from "rellax";
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+
 interface Props {}
 
 const Home = (props: Props) => {
+  const [showModal, setModal] = React.useState(false);
   const handleScrollerClick = () => {
     window.scrollTo(500, 850);
   };
@@ -67,7 +71,7 @@ const Home = (props: Props) => {
             </p>
             <div className="center">
               <div className="c-btn">
-                <Link className="c-btn" to="/upcomming-programs">
+                <Link className="c-btn" to="/programs">
                   {" "}
                   Upcoming Events
                 </Link>
@@ -166,6 +170,9 @@ const Home = (props: Props) => {
             <div key={index} className="team-mate">
               <div className="team-image">
                 <img
+                  onClick={() => {
+                    setModal(true);
+                  }}
                   className="team-image"
                   src="https://via.placeholder.com/150"
                   alt="person"
@@ -174,6 +181,25 @@ const Home = (props: Props) => {
               <div>
                 <p className="mt-1">Person {index + 1}</p>
               </div>
+              <Modal isOpen={showModal} contentLabel="Modal">
+                <div className="modal-cont">
+                  <div className="right-push">
+                    <div
+                      className="c-btn trim cross"
+                      onClick={() => setModal(false)}
+                    >
+                      ×
+                    </div>
+                  </div>
+                  <p className="heading-4">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  </p>
+                  <p className="c-grey">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
+                    corrupti, perferendis dolorum obcaecati, ipsam autem
+                  </p>
+                </div>
+              </Modal>
             </div>
           ))}
         </div>
