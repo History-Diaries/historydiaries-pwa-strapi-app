@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "./Footer";
 import { motion } from "framer-motion";
-
+import { Link } from "react-router-dom";
 interface Props {}
 
 const PastPrograms = (props: Props) => {
@@ -59,7 +59,11 @@ const PastPrograms = (props: Props) => {
             excepturi?
           </p>
           <div className="btn-cont">
-            <div className="c-btn m-btn">View more.</div>
+            <div className="c-btn m-btn">
+              <Link className="c-btn m-btn" to={`/program/${index}`}>
+                View more.
+              </Link>
+            </div>
           </div>
         </div>
       </div>

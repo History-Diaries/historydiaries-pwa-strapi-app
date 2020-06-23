@@ -692,6 +692,7 @@ textarea {
   padding: 30px !important;
   border: none !important;
   box-shadow: none;
+  border-radius: 30px !important;
 }
 .c-grey {
   color: #8d91a3;
@@ -713,7 +714,64 @@ textarea {
 .ReactModal__Overlay {
   background: none !important;
 }
+.event-section {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  width: 70%;
+  margin-bottom: 100px;
+  margin-top: 50px;
+}
+.e-sec-1 {
+  width: 70%;
+}
+.e-sec-2 {
+  width: 20%;
+  margin-left: 50px;
+}
+.video-holder {
+  margin-top: 50px;
+  text-align: center;
+}
+.video-i {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: 400px !important;
+}
+.spread {
+  width: 100% !important;
+  text-align: center;
+  padding: 20px !important;
+}
+.t-def {
+  margin-top: 10px;
+  color: #ffc856;
+  font-family: var(--fb);
+}
+.c-grey-m {
+  color: #8d91a3;
+  font-size: 1em;
+  opacity: 0.8;
+}
 @media (max-width: 800px) {
+  .event-section {
+    width: 90%;
+  }
+  .e-sec-1 {
+    width: 100%;
+  }
+  .e-sec-2 {
+    width: 100%;
+    margin-left: 0;
+  }
+  .event-section {
+    flex-direction: column-reverse;
+  }
+  .e-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
   .ReactModal__Content--after-open {
     top: 80% !important;
     width: 90% !important;
@@ -735,6 +793,9 @@ textarea {
     width: 98%;
     margin-top: 30px;
     font-size: 16px;
+  }
+  .mod {
+    height: auto !important;
   }
   .blog-list {
     margin-top: 10px;
@@ -930,5 +991,8 @@ textarea {
     width: 98%;
     display: flex;
     justify-content: center;
+  }
+  .spread {
+    width: 100% !important;
   }
 }

@@ -181,7 +181,11 @@ const Home = (props: Props) => {
               <div>
                 <p className="mt-1">Person {index + 1}</p>
               </div>
-              <Modal isOpen={showModal} contentLabel="Modal">
+              <Modal
+                ariaHideApp={false}
+                isOpen={showModal}
+                contentLabel="Modal"
+              >
                 <div className="modal-cont">
                   <div className="right-push">
                     <div

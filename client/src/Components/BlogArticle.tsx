@@ -19,9 +19,9 @@ const BlogArticle = (props: Props) => {
       <div className="home">
         <div className="center">
           <LazyLoadImage
-            alt={"blog-image"}
+            alt={"blog"}
             effect="blur"
-            className="banner no-shadow"
+            className="banner mod no-shadow"
             src={"https://via.placeholder.com/1920x1080"} // use normal <img> attributes as props
           />
         </div>

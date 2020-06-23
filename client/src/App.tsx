@@ -10,6 +10,7 @@ import GenericNotFound from "./Components/GenericNotFound";
 import BlogArticle from "./Components/BlogArticle";
 import { AnimatePresence } from "framer-motion";
 import SplashScreen from "./Components/SplashScreen";
+import ProgramDetails from "./Components/ProgramDetails";
 
 const App: React.FC = () => {
   const [flag, setFlag] = React.useState(true);
@@ -29,6 +30,7 @@ const App: React.FC = () => {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/programs" component={Programs} />
+            <Route exact path="/program/:id" component={ProgramDetails} />
             <Route exact path="/reach" component={Contact} />
             <Route exact path="/blog" component={Blog} />
             <Route exact path="/blog/:id" component={BlogArticle} />
