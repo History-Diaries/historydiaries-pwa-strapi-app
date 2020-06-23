@@ -3,3 +3,4 @@ client/node_modules
 backend-dashboard/node_modules
 out.log
 backend/extensions/upload/config/settings.json
+
