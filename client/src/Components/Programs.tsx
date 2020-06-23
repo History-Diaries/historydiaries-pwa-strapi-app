@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Link, Redirect } from "react-router-dom";
 import axios from "axios";
 import { API } from "../config";
+
 interface Props {}
 interface Istate {
   workshops: Array<object>;
@@ -91,13 +92,8 @@ const PastPrograms = (props: Props) => {
           <p className="card-title">{data.Title}</p>
           <p className="card-details">{data.Summary}</p>
           <div className="btn-cont">
-            <div className="c-btn m-btn">
-              <Link
-                className="c-btn m-btn sc"
-                to={`/program/${type}/${data._id}`}
-              >
-                View more.
-              </Link>
+            <div className="view-more-btn">
+              <Link to={`/program/${type}/${data._id}`}>View more.</Link>
             </div>
           </div>
         </div>

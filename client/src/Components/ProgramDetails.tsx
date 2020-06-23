@@ -4,9 +4,8 @@ import YouTube from "react-youtube";
 import { BrowserView, MobileView } from "react-device-detect";
 import { RouteComponentProps, Redirect } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
-import breaks from "remark-breaks";
+import { motion } from "framer-motion";
 import axios from "axios";
-
 import { API } from "../config";
 import Footer from "./Footer";
 interface Istate {
@@ -65,7 +64,12 @@ const ProgramDetails = ({ match }: RouteComponentProps<TParams>) => {
           </div>
         </div>
       ) : state.data ? (
-        <div className="home">
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0 }}
+          className="home"
+        >
           <div className="center">
             <LazyLoadImage
               alt={"blog-image"}
@@ -146,7 +150,7 @@ const ProgramDetails = ({ match }: RouteComponentProps<TParams>) => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       ) : (
         <Redirect to="/error" />
       )}
