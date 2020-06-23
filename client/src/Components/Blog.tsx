@@ -3,15 +3,27 @@ import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import FadeIn from "react-fade-in";
+import axios from "axios";
+import ReactMarkdown from "react-markdown";
+import format from "date-fns/format";
+import { parseISO } from "date-fns";
+
 interface Props {}
 
 const Blog = (props: Props) => {
+  const [state, setState] = React.useState([
+    { Title: "", Summary: "", Date: "", Content: "" },
+  ]);
+  const getData = async () => {
+    const res = await axios.get("http://localhost:1337/blogs");
+    setState([...res.data]);
+  };
   React.useEffect(() => {
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 200);
-  });
-  const list = [1, 2, 3, 4, 5];
+    getData();
+  }, []);
   return (
     <motion.div
       initial={{ opacity: 0, y: 200 }}
@@ -33,7 +45,7 @@ const Blog = (props: Props) => {
           </div>
         </div>
         <div className="blog-list">
-          {list.map((e, i) => (
+          {state.map((e, i) => (
             <div key={i} className="blog-item">
               <div className="blog-image">
                 <img
@@ -46,17 +58,16 @@ const Blog = (props: Props) => {
                 <div className="blog-list-title">
                   <Link to={`/blog/${i}`}>
                     {" "}
-                    <p>Blog article tile</p>
+                    <p>
+                      <ReactMarkdown source={e.Title} />
+                    </p>
                   </Link>
                 </div>
                 <div className="blog-list-description">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Eaque, harum commodi iusto quas accusamus animi earum dolor?
-                  Nulla, accusamus. A ipsa perspiciatis impedit voluptatibus
-                  sapiente dolorum tempora eveniet error minus?
+                  <ReactMarkdown source={e.Summary} />
                 </div>
                 <div className="blog-list-date">
-                  <div>22 June, 2020. 5:30pm</div>
+                  <div>{String(parseISO(e.Date))}</div>
                 </div>
               </div>
             </div>
