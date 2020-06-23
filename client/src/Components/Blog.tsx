@@ -2,6 +2,7 @@ import React from "react";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import FadeIn from "react-fade-in";
 interface Props {}
 
 const Blog = (props: Props) => {
