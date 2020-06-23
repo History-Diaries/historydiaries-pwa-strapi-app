@@ -93,34 +93,36 @@ const ProgramDetails = ({ match }: RouteComponentProps<TParams>) => {
                   <div></div>
                 </div>
 
-                <div className="video-holder">
-                  <BrowserView>
-                    <YouTube
-                      className="video-i"
-                      videoId="2g811Eo7K8U"
-                      opts={{
-                        height: "300",
-                        width: "640",
-                        playerVars: {
-                          autoplay: 1,
-                        },
-                      }}
-                    />
-                  </BrowserView>
+                {state.data.YoutubeVIdeoID ? (
+                  <div className="video-holder">
+                    <BrowserView>
+                      <YouTube
+                        className="video-i"
+                        videoId="2g811Eo7K8U"
+                        opts={{
+                          height: "300",
+                          width: "640",
+                          playerVars: {
+                            autoplay: 1,
+                          },
+                        }}
+                      />
+                    </BrowserView>
 
-                  <MobileView>
-                    <YouTube
-                      videoId="2g811Eo7K8U"
-                      opts={{
-                        height: "150",
-                        width: "300",
-                        playerVars: {
-                          autoplay: 1,
-                        },
-                      }}
-                    />
-                  </MobileView>
-                </div>
+                    <MobileView>
+                      <YouTube
+                        videoId="2g811Eo7K8U"
+                        opts={{
+                          height: "150",
+                          width: "300",
+                          playerVars: {
+                            autoplay: 1,
+                          },
+                        }}
+                      />
+                    </MobileView>
+                  </div>
+                ) : null}
               </div>
             </div>
             <div className="e-sec-2">

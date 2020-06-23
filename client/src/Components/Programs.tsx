@@ -3,6 +3,8 @@ import Footer from "./Footer";
 import { motion } from "framer-motion";
 import { Link, Redirect } from "react-router-dom";
 import axios from "axios";
+import FadeIn from "react-fade-in";
+
 import { API } from "../config";
 
 interface Props {}
@@ -12,14 +14,18 @@ interface Istate {
   contests: Array<object>;
   theaters: Array<object>;
   loading: boolean;
+  message: string;
 }
 const PastPrograms = (props: Props) => {
+  let isCancelled = false;
+
   const [state, setState] = React.useState<Istate>({
     workshops: [],
     courses: [],
     contests: [],
     theaters: [],
     loading: true,
+    message: "",
   });
   React.useEffect(() => {
     const fetchData = async () => {
@@ -28,19 +34,31 @@ const PastPrograms = (props: Props) => {
       const contests = axios.get(`${API}/contests`);
       const theater = axios.get(`${API}/theaters`);
 
-      const res = await axios.all([workshops, courses, contests, theater]);
-
-      setState({
-        ...state,
-        workshops: res[0].data,
-        courses: res[1].data,
-        contests: res[2].data,
-        theaters: res[3].data,
-        loading: false,
-      });
+      try {
+        const res = await axios.all([workshops, courses, contests, theater]);
+        if (!isCancelled) {
+          setState({
+            ...state,
+            workshops: res[0].data,
+            courses: res[1].data,
+            contests: res[2].data,
+            theaters: res[3].data,
+            loading: false,
+          });
+        }
+      } catch (error) {
+        setState({
+          ...state,
+          loading: false,
+          message: "Fetch Failed",
+        });
+      }
     };
 
     fetchData();
+    return () => {
+      isCancelled = true;
+    };
   }, []);
 
   console.log(state);
@@ -169,6 +187,7 @@ const PastPrograms = (props: Props) => {
     }
   };
 
+  if (state.message) return <Redirect to="/error" />;
   return (
     <motion.div
       initial={{ opacity: 0, y: 200 }}
@@ -195,7 +214,9 @@ const PastPrograms = (props: Props) => {
           </div>
         </div>
         <div className="center">
-          <div className="heading-2 mt-3">{current}</div>
+          <FadeIn>
+            <div className="heading-2 mt-3">{current}</div>
+          </FadeIn>
         </div>
       </div>
       <div className="card-holder">{switchRenderer(current)}</div>
