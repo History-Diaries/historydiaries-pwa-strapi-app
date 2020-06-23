@@ -5,15 +5,6 @@ import { motion } from "framer-motion";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 interface Props {}
 
-const styleBanner = {
-  width: "100%",
-  height: "70vh",
-  borderRadius: "30px",
-  backgroundSize: "cover",
-  backgroundRepeat: "repeat-y",
-  backgroundPosition: "center",
-  backgroundImage: "url('https://via.placeholder.com/1920x1080')",
-};
 const BlogArticle = (props: Props) => {
   React.useEffect(() => {
     window.scrollTo(0, 0);

@@ -33,12 +33,9 @@ const Navbar = (props: Props) => {
             </HashLink>
           </div>
           <div className="nav-item">
-            <Link className="color-secondary" to="/past-programs">
-              Past Programs
+            <Link className="color-secondary" to="/programs">
+              Programs
             </Link>
-          </div>
-          <div className="nav-item">
-            <Link to="/upcomming-programs">Upcomming Programs</Link>
           </div>
           <div className="nav-item">
             <Link to="/reach">Reach Us</Link>
@@ -81,15 +78,7 @@ const Navbar = (props: Props) => {
             }}
             className="m-nav-item"
           >
-            <Link to="/past-programs"> Past Programs</Link>
-          </div>
-          <div
-            onClick={(e) => {
-              handleClick(e, handleMenu, MobileMenu);
-            }}
-            className="m-nav-item"
-          >
-            <Link to="/upcomming-programs"> Upcomming Programs</Link>
+            <Link to="/programs"> Programs</Link>
           </div>
           <div
             onClick={(e) => {
