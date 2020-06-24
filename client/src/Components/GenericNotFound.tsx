@@ -6,13 +6,13 @@ interface Props {}
 const GenericNotFound = (props: Props) => {
   return (
     <div>
-      <div className="loading-screen">
-        <div className="loader-holder x center">
+      <div className="main-error">
+        <div>
           <div>
             <h1 className="error-title">404 Error / Page Not Found</h1>
           </div>
           <div>
-            <Link to="/" className="c-btn mt-5">
+            <Link to="/" className="c-btn mt-5 shrink">
               Go Home Kid
             </Link>
           </div>

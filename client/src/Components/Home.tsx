@@ -73,7 +73,7 @@ const Home = (props: Props) => {
               </p>
               <div className="center">
                 <div className="c-btn">
-                  <Link className="c-btn" to="/programs">
+                  <Link className="c-white" to="/programs">
                     {" "}
                     Upcoming Events
                   </Link>
