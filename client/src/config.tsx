@@ -1,3 +1,3 @@
-const API = "http://localhost:1337";
+const API = "https://admin.historydiaries.com";
 
 export { API };
