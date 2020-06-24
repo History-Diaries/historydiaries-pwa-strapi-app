@@ -19,7 +19,6 @@ const Home = (props: Props) => {
   };
   React.useEffect(() => {
     var rellax = new Rellax(".rellax");
-    console.log(rellax);
   }, []);
   const team = [
     {
@@ -73,7 +72,7 @@ const Home = (props: Props) => {
               </p>
               <div className="center">
                 <div className="c-btn">
-                  <Link className="c-white" to="/programs">
+                  <Link className="c-white " to="/programs">
                     {" "}
                     Upcoming Events
                   </Link>

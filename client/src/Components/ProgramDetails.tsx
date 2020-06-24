@@ -20,8 +20,6 @@ Line 3
 `;
 const source = value;
 
-console.log("Source", source);
-
 type TParams = { id: string; program: string };
 const ProgramDetails = ({ match }: RouteComponentProps<TParams>) => {
   const program = match.params.program;

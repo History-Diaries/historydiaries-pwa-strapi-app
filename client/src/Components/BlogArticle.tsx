@@ -31,7 +31,7 @@ const BlogArticle = ({ match }: RouteChildrenProps<TParams>) => {
     const getData = async () => {
       try {
         const response = await axios.get(`${API}/blogs/${id}`);
-        console.log(response);
+
         if (!isCancelled) {
           setState({
             ...state,
