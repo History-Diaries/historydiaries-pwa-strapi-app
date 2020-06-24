@@ -1,7 +1,6 @@
 import React from "react";
 import Footer from "./Footer";
 import { Link, RouteChildrenProps, Redirect } from "react-router-dom";
-import { motion } from "framer-motion";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";

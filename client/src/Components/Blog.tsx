@@ -112,7 +112,7 @@ const Blog = (props: Props) => {
               ))}
             </FadeIn>
           ) : (
-            <div className="center">
+            <div className="center mm">
               <p>No articles found</p>
             </div>
           )}

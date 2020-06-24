@@ -40,7 +40,7 @@ const Contact = (props: Props) => {
     try {
       const response = await axios.post(`${API}/ideas`, body, config);
       reset();
-      if (response.status == 200) {
+      if (response.status === 200) {
         setState({
           loading: false,
           message: "Submitted",

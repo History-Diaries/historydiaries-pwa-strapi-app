@@ -6,13 +6,9 @@ interface Props {}
 
 const Navbar = (props: Props) => {
   const handleMenu = React.useRef(null);
-  const MobileMenu = React.useRef(null);
   const [menu, setMenu] = React.useState(false);
-  const handleClick = (e: any, handleMenu: any, MobileMenu: any) => {
+  const handleClick = (e: any, handleMenu: any) => {
     handleMenu.current.classList.toggle("change");
-
-    const toggleState = !menu ? "block" : "none";
-    MobileMenu.current.style.display = `${toggleState}`;
     setMenu(!menu);
   };
 
@@ -48,11 +44,11 @@ const Navbar = (props: Props) => {
             </span>
           </div>
         </div>
-        <div className="no-desktop v-center">
+        <div className="v-center">
           <div
-            className="menu"
+            className="menu no-desktop"
             ref={handleMenu}
-            onClick={(e) => handleClick(e, handleMenu, MobileMenu)}
+            onClick={(e) => handleClick(e, handleMenu)}
           >
             <div className="bar1"></div>
             <div className="bar2"></div>
@@ -60,48 +56,50 @@ const Navbar = (props: Props) => {
           </div>
         </div>
       </div>
-      <div className="mobile-menu no-desktop" ref={MobileMenu}>
-        <div className="nav-items-mobile">
-          <div
-            onClick={(e) => {
-              handleClick(e, handleMenu, MobileMenu);
-            }}
-            className="m-nav-item"
-          >
-            <HashLink className="color-secondary" to="/#out-team">
-              About Us
-            </HashLink>
-          </div>
-          <div
-            onClick={(e) => {
-              handleClick(e, handleMenu, MobileMenu);
-            }}
-            className="m-nav-item"
-          >
-            <Link to="/programs"> Programs</Link>
-          </div>
-          <div
-            onClick={(e) => {
-              handleClick(e, handleMenu, MobileMenu);
-            }}
-            className="m-nav-item"
-          >
-            <Link to="/reach"> Reach Us</Link>
-          </div>
-          <div
-            onClick={(e) => {
-              handleClick(e, handleMenu, MobileMenu);
-            }}
-            className="m-nav-item m-btn"
-          >
-            <span>
-              <Link className="m-n-btn" to="/blog">
-                Blog
-              </Link>
-            </span>
+      {menu && (
+        <div className="mobile-menu no-desktop">
+          <div className="nav-items-mobile">
+            <div
+              onClick={(e) => {
+                handleClick(e, handleMenu);
+              }}
+              className="m-nav-item"
+            >
+              <HashLink className="color-secondary" to="/#out-team">
+                About Us
+              </HashLink>
+            </div>
+            <div
+              onClick={(e) => {
+                handleClick(e, handleMenu);
+              }}
+              className="m-nav-item"
+            >
+              <Link to="/programs"> Programs</Link>
+            </div>
+            <div
+              onClick={(e) => {
+                handleClick(e, handleMenu);
+              }}
+              className="m-nav-item"
+            >
+              <Link to="/reach"> Reach Us</Link>
+            </div>
+            <div
+              onClick={(e) => {
+                handleClick(e, handleMenu);
+              }}
+              className="m-nav-item m-btn"
+            >
+              <span>
+                <Link className="m-n-btn" to="/blog">
+                  Blog
+                </Link>
+              </span>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

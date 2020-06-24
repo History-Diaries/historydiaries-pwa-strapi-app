@@ -221,9 +221,6 @@ html {
   justify-content: center;
   align-content: center;
 }
-.no-desktop {
-  display: none;
-}
 
 .color-white {
   color: #ffc856;
@@ -471,9 +468,13 @@ a {
 }
 .card-title {
   font-size: 1em;
+  margin-top: 10px;
   color: #271e41;
   font-family: var(--fb);
   margin-bottom: 15px;
+}
+.mm {
+  margin: 250px;
 }
 .card-details {
   color: #8d91a3;
@@ -693,6 +694,7 @@ textarea {
   margin: auto;
   padding: 30px !important;
   border: none !important;
+  border-radius: 30px !important;
 }
 .c-grey {
   color: #8d91a3;
@@ -842,9 +844,7 @@ h5 {
   width: 51px;
   height: 51px;
 }
-.no-desktop {
-  display: none !important;
-}
+
 .view-more-btn {
   padding: 10px;
   background-color: #ffc856;
@@ -880,7 +880,17 @@ h5 {
 .mt-5 {
   margin-top: 100px !important;
 }
+.no-desktop {
+  display: none !important;
+}
+
 @media (max-width: 800px) {
+  .no-mobile {
+    display: none !important;
+  }
+  .no-desktop {
+    display: block !important;
+  }
   .ReactModal__Content--after-open {
     top: 80% !important;
     width: 90% !important;
@@ -1009,12 +1019,7 @@ h5 {
     margin-top: 10px;
     transform: scale(0.65);
   }
-  .no-mobile {
-    display: none;
-  }
-  .no-desktop {
-    display: block;
-  }
+
   .navbar {
     margin: 30px;
   }
@@ -1097,5 +1102,27 @@ h5 {
     width: 98%;
     display: flex;
     justify-content: center;
+  }
+  .data-section {
+    margin-top: 80px;
+  }
+  .event-section {
+    flex-direction: column !important;
+    width: 85% !important;
+  }
+  .e-sec-1 {
+    width: 100%;
+  }
+  .e-sec-2 {
+    width: 100% !important;
+    margin-left: 0;
+  }
+  .view-more-btn {
+    margin-top: 15px;
+  }
+  .v-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
