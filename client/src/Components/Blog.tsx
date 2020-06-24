@@ -63,14 +63,25 @@ const Blog = (props: Props) => {
       exit={{ opacity: 0 }}
     >
       <div className="home mt-b">
-        <Link to={`/blog/${state.latestArticle && state.latestArticle._id}`}>
+        {state.latestArticle ? (
+          <Link to={`/blog/${state.latestArticle && state.latestArticle._id}`}>
+            <div className="banner h-1">
+              <div className="banner-cont">
+                <p className="banner-text t2">
+                  {state.latestArticle && state.latestArticle.Title}
+                </p>
+                <div className="w-2">
+                  <p className="t-3">
+                    {state.latestArticle && state.latestArticle.Summary}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Link>
+        ) : (
           <div className="banner h-1">
             <div className="banner-cont">
-              <p className="banner-text t2">
-                {state.latestArticle
-                  ? state.latestArticle.Title
-                  : "History Diaries Blog"}
-              </p>
+              <p className="banner-text t2">{"History Diaries Blog"}</p>
               <div className="w-2">
                 <p className="t-3">
                   {state.latestArticle && state.latestArticle.Summary}
@@ -78,7 +89,7 @@ const Blog = (props: Props) => {
               </div>
             </div>
           </div>
-        </Link>
+        )}
         <div className="blog-list">
           {state.loading ? (
             <div className="center">
@@ -92,8 +103,8 @@ const Blog = (props: Props) => {
                   <div className="blog-image">
                     <img
                       className="blog-list-image"
-                      src="https://via.placeholder.com/150"
-                      alt="blog"
+                      src={e.Banner.url}
+                      alt={e.Banner.Tittle}
                     />
                   </div>
                   <div className="blog-content">

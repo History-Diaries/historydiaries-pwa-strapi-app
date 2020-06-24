@@ -72,10 +72,10 @@ const ProgramDetails = ({ match }: RouteComponentProps<TParams>) => {
         >
           <div className="center">
             <LazyLoadImage
-              alt={"blog-image"}
+              alt={state.data.Title}
               effect="blur"
               className="banner mod no-shadow"
-              src={"https://via.placeholder.com/1920x1080"} // use normal <img> attributes as props
+              src={state.data.Banner.url} // use normal <img> attributes as props
             />
           </div>
           <div className="event-section">
@@ -93,12 +93,12 @@ const ProgramDetails = ({ match }: RouteComponentProps<TParams>) => {
                   <div></div>
                 </div>
 
-                {state.data.YoutubeVIdeoID ? (
+                {state.data.YoutubeVideoID ? (
                   <div className="video-holder">
                     <BrowserView>
                       <YouTube
                         className="video-i"
-                        videoId="2g811Eo7K8U"
+                        videoId={state.data.YoutubeVideoID}
                         opts={{
                           height: "300",
                           width: "640",
@@ -111,7 +111,7 @@ const ProgramDetails = ({ match }: RouteComponentProps<TParams>) => {
 
                     <MobileView>
                       <YouTube
-                        videoId="2g811Eo7K8U"
+                        videoId={state.data.YoutubeVideoID}
                         opts={{
                           height: "150",
                           width: "300",

@@ -25,7 +25,7 @@ const Navbar = (props: Props) => {
 
         <div className="nav-items no-mobile">
           <div className="nav-item">
-            <HashLink className="color-secondary" to="/#out-team">
+            <HashLink className="color-secondary" to="/#our-story">
               About Us
             </HashLink>
           </div>
@@ -66,7 +66,7 @@ const Navbar = (props: Props) => {
               }}
               className="m-nav-item"
             >
-              <HashLink className="color-secondary" to="/#out-team">
+              <HashLink className="color-secondary" to="/#our-story">
                 About Us
               </HashLink>
             </div>

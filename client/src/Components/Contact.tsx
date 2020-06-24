@@ -43,7 +43,7 @@ const Contact = (props: Props) => {
       if (response.status === 200) {
         setState({
           loading: false,
-          message: "Submitted",
+          message: "Thanks for submitting your idea",
         });
       }
     } catch (error) {

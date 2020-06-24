@@ -103,7 +103,7 @@ const PastPrograms = (props: Props) => {
           <div>
             <img
               className="event-image"
-              src="https://via.placeholder.com/150"
+              src={data.Banner.url}
               alt={data.Title}
             />
           </div>

@@ -74,7 +74,7 @@ const BlogArticle = ({ match }: RouteChildrenProps<TParams>) => {
                 alt={"blog"}
                 effect="blur"
                 className="banner mod no-shadow"
-                src={"https://via.placeholder.com/1920x1080"} // use normal <img> attributes as props
+                src={state.data.Banner.url} // use normal <img> attributes as props
               />
             </div>
             <div className="blog-title">
@@ -91,7 +91,10 @@ const BlogArticle = ({ match }: RouteChildrenProps<TParams>) => {
               </p>
             </div>
             <div className="blog-content-2">
-              <ReactMarkdown source={state.data.Content} />
+              <ReactMarkdown
+                className="reactMarkdown  "
+                source={state.data.Content}
+              />
             </div>
           </div>
           <div className="center">
