@@ -3,7 +3,6 @@ import Rellax from "rellax";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
-
 import Vision from "../Assets/Images/idea.svg";
 import Mission from "../Assets/Images/goal.svg";
 import Footer from "./Footer";

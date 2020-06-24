@@ -7,16 +7,16 @@ const MediaMentions = (props: Props) => {
   return (
     <Carousel>
       <div>
-        <img src="https://via.placeholder.com/1920x1080" />
+        <img src="https://via.placeholder.com/1920x1080" alt="media" />
       </div>
       <div>
-        <img src="https://via.placeholder.com/1920x1080" />
+        <img src="https://via.placeholder.com/1920x1080" alt="media" />
       </div>
       <div>
-        <img src="https://via.placeholder.com/1920x1080" />
+        <img src="https://via.placeholder.com/1920x1080" alt="media" />
       </div>
       <div>
-        <img src="https://via.placeholder.com/1920x1080" />
+        <img src="https://via.placeholder.com/1920x1080" alt="media" />
       </div>
     </Carousel>
   );

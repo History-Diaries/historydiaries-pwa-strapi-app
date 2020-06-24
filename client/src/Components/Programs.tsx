@@ -15,6 +15,8 @@ interface Istate {
   theaters: Array<object>;
   loading: boolean;
   message: string;
+  latestBanner: any;
+  current: string;
 }
 const PastPrograms = (props: Props) => {
   let isCancelled = false;
@@ -26,13 +28,15 @@ const PastPrograms = (props: Props) => {
     theaters: [],
     loading: true,
     message: "",
+    latestBanner: null,
+    current: "Workshops",
   });
   React.useEffect(() => {
     const fetchData = async () => {
-      const workshops = axios.get(`${API}/workshops`);
-      const courses = axios.get(`${API}/courses`);
-      const contests = axios.get(`${API}/contests`);
-      const theater = axios.get(`${API}/theaters`);
+      const workshops = axios.get(`${API}/workshops?_sort=createdAt:DESC`);
+      const courses = axios.get(`${API}/courses?_sort=createdAt:DESC`);
+      const contests = axios.get(`${API}/contests?_sort=createdAt:DESC`);
+      const theater = axios.get(`${API}/theaters?_sort=createdAt:DESC`);
 
       try {
         const res = await axios.all([workshops, courses, contests, theater]);
@@ -43,6 +47,7 @@ const PastPrograms = (props: Props) => {
             courses: res[1].data,
             contests: res[2].data,
             theaters: res[3].data,
+            latestBanner: res[0].data.length > 0 ? res[0].data[0] : null,
             loading: false,
           });
         }
@@ -61,9 +66,7 @@ const PastPrograms = (props: Props) => {
     };
   }, []);
 
-  console.log(state);
   const itemRef = React.useRef(null);
-  const [current, setCurrent] = React.useState("Workshops");
   const [items, setItems] = React.useState({
     list: [
       {
@@ -89,11 +92,39 @@ const PastPrograms = (props: Props) => {
     const dupList = items.list;
     dupList.map((e) => (e.state = false));
     dupList[index].state = true;
-    setCurrent(dupList[index].name);
 
     setItems({
       list: dupList,
     });
+
+    if (dupList[index].name === "Workshops") {
+      setState({
+        ...state,
+        current: "Workshops",
+        latestBanner: state.workshops.length > 0 ? state.workshops[0] : null,
+      });
+    }
+    if (dupList[index].name === "Contests") {
+      setState({
+        ...state,
+        current: "Contests",
+        latestBanner: state.contests.length > 0 ? state.contests[0] : null,
+      });
+    }
+    if (dupList[index].name === "Courses") {
+      setState({
+        ...state,
+        current: "Courses",
+        latestBanner: state.courses.length > 0 ? state.courses[0] : null,
+      });
+    }
+    if (dupList[index].name === "Theaters") {
+      setState({
+        ...state,
+        current: "Theaters",
+        latestBanner: state.theaters.length > 0 ? state.theaters[0] : null,
+      });
+    }
   };
 
   const EventCard = (data: any, type: string) => {
@@ -226,7 +257,7 @@ const PastPrograms = (props: Props) => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0 }}
     >
-      <p className="heading-3 roll no-desktop">Past Programs</p>
+      <p className="heading-3 roll no-desktop">Programs</p>
       <div className="e-container">
         <div className="card-dialouge">
           <div className="list-items">
@@ -242,16 +273,33 @@ const PastPrograms = (props: Props) => {
             ))}
           </div>
           <div className="no-mobile e-banner">
-            <h1 className="white">Programs</h1>
+            {state.latestBanner ? (
+              <FadeIn>
+                <Link
+                  to={`/program/${state.current}/${state.latestBanner._id}`}
+                >
+                  <div className="cont-holder">
+                    <h1 className="white mb-1">{state.latestBanner.Title}</h1>
+                    <p>{state.latestBanner.Summary}</p>
+                  </div>
+                </Link>
+              </FadeIn>
+            ) : (
+              <FadeIn>
+                <div className="cont-holder">
+                  <h1 className="white">Programs</h1>
+                </div>
+              </FadeIn>
+            )}
           </div>
         </div>
         <div className="center">
           <FadeIn>
-            <div className="heading-2 mt-3">{current}</div>
+            <div className="heading-2 mt-3">{state.current}</div>
           </FadeIn>
         </div>
       </div>
-      <div className="card-holder">{switchRenderer(current)}</div>
+      <div className="card-holder">{switchRenderer(state.current)}</div>
       <Footer />
     </motion.div>
   );

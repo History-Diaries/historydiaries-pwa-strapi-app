@@ -431,8 +431,12 @@ a {
 .e-item {
   font-size: 1.2em;
 }
+.width-a {
+  width: 80% !important;
+  transition: 0.5s;
+}
 .e-banner {
-  width: 80%;
+  width: 100%;
   background-color: #271e41;
   height: 100%;
   border-radius: 30px;
@@ -440,6 +444,18 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: auto;
+  transition: 0.5s;
+}
+.mb-1 {
+  margin-bottom: 30px;
+}
+.cont-holder {
+  width: 70%;
+  color: #8d91a3;
+  opacity: 0.5;
+  text-align: center;
+  margin: auto;
 }
 .mt-3 {
   margin-top: 80px;
@@ -944,6 +960,7 @@ h5 {
 .media-section {
   width: 80%;
   margin: 100px;
+  margin-bottom: 100px;
 }
 .ReactGridGallery {
   margin-bottom: 200px !important;
@@ -956,6 +973,7 @@ h5 {
   text-align: center !important;
   max-width: 70%;
   margin-top: 50px;
+  margin-bottom: 100px !important;
 }
 
 .slider-wrapper {
