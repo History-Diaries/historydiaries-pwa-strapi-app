@@ -883,7 +883,21 @@ h5 {
 .no-desktop {
   display: none !important;
 }
-
+.empty {
+  width: 150px;
+  height: 150px;
+}
+.icon-manage {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+.mt-2 {
+  margin-top: 30px;
+}
 @media (max-width: 800px) {
   .no-mobile {
     display: none !important;
@@ -1124,5 +1138,15 @@ h5 {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .team-section {
+    margin-top: 20px !important;
+  }
+  .data-section {
+    margin-bottom: 100px;
+  }
+  .mod {
+    max-width: 100% !important;
+    height: auto !important;
   }
 }

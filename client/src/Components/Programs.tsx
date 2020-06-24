@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Link, Redirect } from "react-router-dom";
 import axios from "axios";
 import FadeIn from "react-fade-in";
-
+import Empty from "../Assets/Images/amusement-park.svg";
 import { API } from "../config";
 
 interface Props {}
@@ -127,7 +127,15 @@ const PastPrograms = (props: Props) => {
         ) : state.workshops.length > 0 ? (
           state.workshops.map((e, i) => EventCard(e, "workshops"))
         ) : (
-          <p>No workshops. check again later</p>
+          <div className="icon-manage">
+            <div>
+              <img className="empty" src={Empty} alt="empty" />
+            </div>
+
+            <div className="mt-2">
+              <p>No workshops. Check again later</p>
+            </div>
+          </div>
         )}
       </div>
     );
@@ -140,7 +148,15 @@ const PastPrograms = (props: Props) => {
         ) : state.courses.length > 0 ? (
           state.courses.map((e, i) => EventCard(e, "courses"))
         ) : (
-          <p>No courses. check again later</p>
+          <div className="icon-manage">
+            <div>
+              <img className="empty" src={Empty} alt="empty" />
+            </div>
+
+            <div className="mt-2">
+              <p>No courses. Check again later</p>
+            </div>
+          </div>
         )}
       </div>
     );
@@ -153,7 +169,15 @@ const PastPrograms = (props: Props) => {
         ) : state.contests.length > 0 ? (
           state.contests.map((e, i) => EventCard(e, "contests"))
         ) : (
-          <p>No contests. check again later</p>
+          <div className="icon-manage">
+            <div>
+              <img className="empty" src={Empty} alt="empty" />
+            </div>
+
+            <div className="mt-2">
+              <p>No contests. Check again later</p>
+            </div>
+          </div>
         )}
       </div>
     );
@@ -166,7 +190,15 @@ const PastPrograms = (props: Props) => {
         ) : state.theaters.length > 0 ? (
           state.theaters.map((e, i) => EventCard(e, "theaters"))
         ) : (
-          <p>No theaters. check again later</p>
+          <div className="icon-manage">
+            <div>
+              <img className="empty" src={Empty} alt="empty" />
+            </div>
+
+            <div className="mt-2">
+              <p>No theaters. Check again later</p>
+            </div>
+          </div>
         )}
       </div>
     );

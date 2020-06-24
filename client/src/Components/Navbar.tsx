@@ -2,6 +2,7 @@ import React from "react";
 import Logo from "../Assets/Images/Logo.png";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+
 interface Props {}
 
 const Navbar = (props: Props) => {
@@ -44,9 +45,9 @@ const Navbar = (props: Props) => {
             </span>
           </div>
         </div>
-        <div className="v-center">
+        <div className="no-desktop v-center ">
           <div
-            className="menu no-desktop"
+            className="menu "
             ref={handleMenu}
             onClick={(e) => handleClick(e, handleMenu)}
           >

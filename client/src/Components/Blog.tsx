@@ -6,6 +6,7 @@ import FadeIn from "react-fade-in";
 import axios from "axios";
 import format from "date-fns/format";
 import { API } from "../config";
+import Sandbox from "../Assets/Images/sandbox.svg";
 interface Props {}
 
 interface Istate {
@@ -66,7 +67,9 @@ const Blog = (props: Props) => {
           <div className="banner h-1">
             <div className="banner-cont">
               <p className="banner-text t2">
-                {state.latestArticle && state.latestArticle.Title}
+                {state.latestArticle
+                  ? state.latestArticle.Title
+                  : "History Diaries Blog"}
               </p>
               <div className="w-2">
                 <p className="t-3">
@@ -112,8 +115,14 @@ const Blog = (props: Props) => {
               ))}
             </FadeIn>
           ) : (
-            <div className="center mm">
-              <p>No articles found</p>
+            <div className="icon-manage">
+              <div>
+                <img className="empty" src={Sandbox} alt="empty" />
+              </div>
+
+              <div className="mt-2">
+                <p>No articles published.</p>
+              </div>
             </div>
           )}
         </div>
