@@ -15,6 +15,7 @@ interface Istate {
   loading: boolean;
   message: string;
   latestArticle: any;
+  page: number;
 }
 const Blog = (props: Props) => {
   ReactGA.pageview("/blog");
@@ -24,6 +25,7 @@ const Blog = (props: Props) => {
     loading: true,
     message: "",
     latestArticle: null,
+    page: 0,
   });
 
   React.useEffect(() => {

@@ -82,9 +82,25 @@ const BlogArticle = ({ match }: RouteChildrenProps<TParams>) => {
                 src={state.data.Banner.url} // use normal <img> attributes as props
               />
             </div>
+
             <div className="blog-title">
               <p>{state.data.Title}</p>
             </div>
+            {state.data.Author && (
+              <div className="center author">
+                <div>
+                  {" "}
+                  <img
+                    className="author-image"
+                    src={state.data.Author.Image[0].formats.small.url}
+                    alt=""
+                  />
+                </div>
+                <div className="authorName">
+                  <div>{state.data.Author.Name}</div>
+                </div>
+              </div>
+            )}
             <div className="date center mt-1">
               <i className="fa fa-calendar m-a" aria-hidden="true"></i> &nbsp;
               &nbsp;
@@ -105,7 +121,16 @@ const BlogArticle = ({ match }: RouteChildrenProps<TParams>) => {
           <div className="center">
             <div className="more-article">
               <div>
-                <Link to="/blog" className="ma-btn">
+                <Link
+                  onClick={() => {
+                    ReactGA.event({
+                      category: "Read more article",
+                      action: `User Clicked Read More articles`,
+                    });
+                  }}
+                  to="/blog"
+                  className="ma-btn"
+                >
                   Read More Articles
                 </Link>
               </div>

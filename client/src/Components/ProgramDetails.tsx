@@ -57,7 +57,7 @@ const ProgramDetails = ({ match }: RouteComponentProps<TParams>) => {
         }
       }
     };
-    console.log(state);
+
     fetchData();
 
     return () => {
