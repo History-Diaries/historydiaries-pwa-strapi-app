@@ -1049,6 +1049,33 @@ h5 {
 .social-media {
   padding-top: 40px;
 }
+.mentors {
+  display: flex;
+  flex-direction: column;
+}
+.mentor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.mentor-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  margin: 10px 0;
+}
+.mentor-name {
+  font-family: var(--fb);
+  color: #ffc856;
+  text-align: center;
+}
+.mentor-description {
+  font-size: 0.7em;
+  margin-top: 6px;
+  color: #8d91a3;
+  text-align: center;
+}
 @media (max-width: 800px) {
   .sub-cont {
     width: 98%;

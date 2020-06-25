@@ -12,45 +12,58 @@ import { format } from "date-fns";
 interface Istate {
   data: any;
   loading: boolean;
+  notFound: boolean;
 }
-const value = `# Demo
-
-Line 1${"  "}
-Line 2${"  "}
-Line 3
-`;
-const source = value;
 
 type TParams = { id: string; program: string };
+
 const ProgramDetails = ({ match }: RouteComponentProps<TParams>) => {
+  let isCancelled = false;
   const program = match.params.program;
   const id = match.params.id;
 
   const [state, setState] = React.useState<Istate>({
     data: null,
     loading: true,
+    notFound: false,
   });
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
-
+    console.log("hey");
     const fetchData = async () => {
-      const response = await axios.get(`${API}/${program}/${id}`);
-
-      setState({
-        ...state,
-        data: response.data,
-        loading: false,
-      });
+      try {
+        const response = await axios.get(`${API}/${program}/${id}`);
+        console.log(response.data);
+        if (!isCancelled) {
+          setState({
+            ...state,
+            data: response.data,
+            loading: false,
+          });
+        }
+      } catch (error) {
+        if (!isCancelled) {
+          setState({
+            ...state,
+            notFound: true,
+            loading: false,
+          });
+        }
+      }
     };
-
+    console.log(state);
     fetchData();
+
+    return () => {
+      isCancelled = true;
+    };
   }, []);
 
   const handleRegister = (link: any) => {
     window.open(link);
   };
-
+  if (state.notFound) return <Redirect to="/error" />;
   return (
     <div>
       {state.loading ? (
@@ -126,7 +139,7 @@ const ProgramDetails = ({ match }: RouteComponentProps<TParams>) => {
                 <div className="e-item">
                   <p className="t-def">Deadline</p>
                   <p className="c-grey-m">
-                    {format(new Date(state.data.createdAt), "do MMM yyyy")}
+                    {format(new Date(state.data.Date), "do MMM yyyy")}
                   </p>
                 </div>
                 <div className="e-item">
@@ -135,6 +148,7 @@ const ProgramDetails = ({ match }: RouteComponentProps<TParams>) => {
                     {state.data.Fee ? "₹" + state.data.Fee : "Free"}
                   </p>
                 </div>
+
                 <div className="e-item">
                   {state.data.RegistrationLink && (
                     <div
@@ -146,6 +160,29 @@ const ProgramDetails = ({ match }: RouteComponentProps<TParams>) => {
                       Register
                     </div>
                   )}
+                </div>
+                <br />
+                <div className="e-item">
+                  <div className="center">
+                    <p className="t-def">Expert</p>
+                  </div>
+                  <div className="mentors">
+                    {state.data.Mentor.map((e: any, i: any) => (
+                      <div key={i} className="mentor">
+                        <div>
+                          <img
+                            className="mentor-image"
+                            src={e.MentorImage.formats.small.url}
+                            alt={e.Name}
+                          />
+                        </div>
+                        <div>
+                          <p className="mentor-name">{e.Name}</p>
+                          <p className="mentor-description">{e.Description}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
