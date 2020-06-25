@@ -8,6 +8,7 @@ import Instagram from "../Assets/Images/instagram-sketched.svg";
 import Twitter from "../Assets/Images/twitter.svg";
 import LinkedIn from "../Assets/Images/linkedin.svg";
 import { API } from "../config";
+import ReactGA from "react-ga";
 interface Props {}
 
 const Footer = (props: Props) => {
@@ -21,6 +22,10 @@ const Footer = (props: Props) => {
     },
   });
   const onSubmit = async (values: any) => {
+    ReactGA.event({
+      category: "Subscription Click",
+      action: "User pressed subscribe button",
+    });
     const { email }: any = values;
     console.log(email);
     const config = {

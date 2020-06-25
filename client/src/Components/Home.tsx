@@ -3,6 +3,7 @@ import Rellax from "rellax";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
+import ReactGA from "react-ga";
 import Vision from "../Assets/Images/idea.svg";
 import Mission from "../Assets/Images/goal.svg";
 import Footer from "./Footer";
@@ -72,8 +73,17 @@ const Home = (props: Props) => {
               </p>
               <div className="center">
                 <div className="c-btn">
-                  <Link className="c-white " to="/programs">
-                    {" "}
+                  <Link
+                    onClick={() => {
+                      ReactGA.event({
+                        category: "Home Upcomming Events",
+                        action:
+                          "User pressed upcomming events button in home page",
+                      });
+                    }}
+                    className="c-white "
+                    to="/programs"
+                  >
                     Upcoming Events
                   </Link>
                 </div>

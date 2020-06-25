@@ -9,6 +9,7 @@ import axios from "axios";
 import { API } from "../config";
 import Footer from "./Footer";
 import { format } from "date-fns";
+import ReactGA from "react-ga";
 interface Istate {
   data: any;
   loading: boolean;
@@ -61,6 +62,8 @@ const ProgramDetails = ({ match }: RouteComponentProps<TParams>) => {
   }, []);
 
   const handleRegister = (link: any) => {
+    var ga = ReactGA.ga();
+    ga("register", "clicked", `${state.data.Title}`);
     window.open(link);
   };
   if (state.notFound) return <Redirect to="/error" />;

@@ -1,6 +1,6 @@
 import React from "react";
 import StoreProvider from "./Store/StoreProvider";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Router } from "react-router-dom";
 import Home from "./Components/Home";
 import Navbar from "./Components/Navbar";
 import Programs from "./Components/Programs";
@@ -12,6 +12,17 @@ import { AnimatePresence } from "framer-motion";
 import SplashScreen from "./Components/SplashScreen";
 import ProgramDetails from "./Components/ProgramDetails";
 import ScrollTop from "./Components/ScrollTop";
+import ReactGA from "react-ga";
+
+import { createBrowserHistory } from "history";
+const history = createBrowserHistory();
+const trackingId = "G-B1007MGV70";
+ReactGA.initialize(trackingId);
+ReactGA.pageview(window.location.pathname + window.location.search);
+history.listen((location) => {
+  ReactGA.set({ page: location.pathname });
+  ReactGA.pageview(location.pathname);
+});
 
 const App: React.FC = () => {
   const [flag, setFlag] = React.useState(true);
@@ -27,8 +38,9 @@ const App: React.FC = () => {
   console.log("%c Developed by Saran", style);
   console.log("🔥🔥 ", "https://github.com/saranonearth", "🔥🔥");
   if (flag) return <SplashScreen />;
+
   return (
-    <BrowserRouter>
+    <Router history={history}>
       <StoreProvider>
         <Navbar />
         <ScrollTop />
@@ -48,7 +60,7 @@ const App: React.FC = () => {
           </Switch>
         </AnimatePresence>
       </StoreProvider>
-    </BrowserRouter>
+    </Router>
   );
 };
 
