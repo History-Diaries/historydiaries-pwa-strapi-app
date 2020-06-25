@@ -11,9 +11,11 @@ import Testimonial from "./Testimonial";
 import Scroll from "../Assets/Images/heart.svg";
 import Partners from "./Partners";
 import MediaMentions from "./MediaMentions";
+
 interface Props {}
 
 const Home = (props: Props) => {
+  ReactGA.pageview("/homepage");
   const [showModal, setModal] = React.useState(false);
   const handleScrollerClick = () => {
     window.scrollTo(500, 850);

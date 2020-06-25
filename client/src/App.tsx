@@ -15,16 +15,9 @@ import ScrollTop from "./Components/ScrollTop";
 import ReactGA from "react-ga";
 import { createBrowserHistory } from "history";
 
-const history = createBrowserHistory();
-
 const trackingId = "G-B1007MGV70";
-ReactGA.initialize(trackingId);
-ReactGA.pageview(window.location.pathname + window.location.search);
 
-history.listen((location) => {
-  ReactGA.set({ page: location.location.pathname });
-  ReactGA.pageview(location.location.pathname);
-});
+ReactGA.initialize(trackingId);
 
 const App: React.FC = () => {
   const [flag, setFlag] = React.useState(true);
@@ -42,7 +35,7 @@ const App: React.FC = () => {
   if (flag) return <SplashScreen />;
 
   return (
-    <Router history={history}>
+    <BrowserRouter>
       <StoreProvider>
         <Navbar />
         <ScrollTop />
@@ -62,7 +55,7 @@ const App: React.FC = () => {
           </Switch>
         </AnimatePresence>
       </StoreProvider>
-    </Router>
+    </BrowserRouter>
   );
 };
 
