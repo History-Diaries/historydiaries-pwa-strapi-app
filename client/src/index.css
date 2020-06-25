@@ -729,7 +729,7 @@ textarea {
   margin-bottom: 20px;
   color: #271e41;
   font-family: var(--fb);
-  font-size: 1.5em;
+  font-size: 2em;
 }
 .right-push {
   display: flex;
@@ -793,7 +793,8 @@ textarea {
 h2,
 h3,
 h4,
-h5 {
+h5,
+h6 {
   margin-top: 20px !important;
   margin-bottom: 20px !important;
 }
@@ -802,6 +803,20 @@ h5 {
 }
 .reactMarkdown > p {
   line-height: 1.5;
+}
+.reactMarkdown > h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #ffc856;
+  border-bottom: 6px solid #ffc856;
+  width: max-content;
+}
+.reactMarkdow,
+strong {
+  font-family: var(--fb);
 }
 .reactMarkdown > ul > li {
   margin-bottom: 10px !important;
@@ -1385,6 +1400,9 @@ h5 {
   }
   .blog-list-title {
     font-size: 1.4em !important;
+  }
+  .heading-4 {
+    font-size: 1.6em;
   }
 }
 .c-white {
