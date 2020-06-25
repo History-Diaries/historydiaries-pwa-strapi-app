@@ -6,7 +6,7 @@ import axios from "axios";
 import FadeIn from "react-fade-in";
 import Empty from "../Assets/Images/amusement-park.svg";
 import { API } from "../config";
-
+import ReactGA from "react-ga";
 interface Props {}
 interface Istate {
   workshops: Array<object>;
@@ -19,6 +19,7 @@ interface Istate {
   current: string;
 }
 const PastPrograms = (props: Props) => {
+  ReactGA.pageview("/programs");
   let isCancelled = false;
 
   const [state, setState] = React.useState<Istate>({

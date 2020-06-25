@@ -7,6 +7,7 @@ import ReactMarkdown from "react-markdown";
 import { API } from "../config";
 import { stat } from "fs";
 import { format } from "date-fns";
+import ReactGA from "react-ga";
 interface Istate {
   data: any;
   loading: boolean;
@@ -31,7 +32,7 @@ const BlogArticle = ({ match }: RouteChildrenProps<TParams>) => {
     const getData = async () => {
       try {
         const response = await axios.get(`${API}/blogs/${id}`);
-
+        ReactGA.pageview(`/${response.data.Title}`);
         if (!isCancelled) {
           setState({
             ...state,

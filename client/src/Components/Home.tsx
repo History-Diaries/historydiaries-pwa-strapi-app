@@ -15,6 +15,10 @@ import MediaMentions from "./MediaMentions";
 interface Props {}
 
 const Home = (props: Props) => {
+  ReactGA.event({
+    category: "USER",
+    action: "AT HOME",
+  });
   ReactGA.pageview("/homepage");
   const [showModal, setModal] = React.useState(false);
   const handleScrollerClick = () => {

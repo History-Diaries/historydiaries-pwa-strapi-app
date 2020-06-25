@@ -30,12 +30,13 @@ const ProgramDetails = ({ match }: RouteComponentProps<TParams>) => {
   });
 
   React.useEffect(() => {
+    ReactGA.pageview(`/programdetails`);
     window.scrollTo(0, 0);
-    console.log("hey");
+
     const fetchData = async () => {
       try {
         const response = await axios.get(`${API}/${program}/${id}`);
-        console.log(response.data);
+
         if (!isCancelled) {
           setState({
             ...state,

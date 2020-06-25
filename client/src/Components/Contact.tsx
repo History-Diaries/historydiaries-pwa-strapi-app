@@ -5,9 +5,12 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { API } from "../config";
+import ReactGA from "react-ga";
+
 interface Props {}
 
 const Contact = (props: Props) => {
+  ReactGA.pageview("/reach");
   const [state, setState] = React.useState({
     message: "",
     loading: false,

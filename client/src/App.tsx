@@ -13,12 +13,11 @@ import SplashScreen from "./Components/SplashScreen";
 import ProgramDetails from "./Components/ProgramDetails";
 import ScrollTop from "./Components/ScrollTop";
 import ReactGA from "react-ga";
-import { createBrowserHistory } from "history";
 
 const trackingId = "G-B1007MGV70";
 
 ReactGA.initialize(trackingId);
-console.log(trackingId);
+
 const App: React.FC = () => {
   const [flag, setFlag] = React.useState(true);
   React.useEffect(() => {

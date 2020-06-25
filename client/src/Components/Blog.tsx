@@ -7,6 +7,7 @@ import axios from "axios";
 import format from "date-fns/format";
 import { API } from "../config";
 import Sandbox from "../Assets/Images/sandbox.svg";
+import ReactGA from "react-ga";
 interface Props {}
 
 interface Istate {
@@ -16,6 +17,7 @@ interface Istate {
   latestArticle: any;
 }
 const Blog = (props: Props) => {
+  ReactGA.pageview("/blog");
   let isCancelled = false;
   const [state, setState] = React.useState<Istate>({
     data: [],
