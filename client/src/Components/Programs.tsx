@@ -24,7 +24,7 @@ const PastPrograms = (props: Props) => {
     list: [
       {
         name: "Workshops",
-        state: true,
+        state: false,
       },
       {
         name: "Theaters",
