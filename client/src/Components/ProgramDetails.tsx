@@ -162,28 +162,32 @@ const ProgramDetails = ({ match }: RouteComponentProps<TParams>) => {
                   )}
                 </div>
                 <br />
-                <div className="e-item">
-                  <div className="center">
-                    <p className="t-def">Expert</p>
-                  </div>
-                  <div className="mentors">
-                    {state.data.Mentor.map((e: any, i: any) => (
-                      <div key={i} className="mentor">
-                        <div>
-                          <img
-                            className="mentor-image"
-                            src={e.MentorImage.formats.small.url}
-                            alt={e.Name}
-                          />
+                {state.data.Mentor && state.data.Mentor.length > 0 ? (
+                  <div className="e-item">
+                    <div className="center">
+                      <p className="t-def">Expert</p>
+                    </div>
+                    <div className="mentors">
+                      {state.data.Mentor.map((e: any, i: any) => (
+                        <div key={i} className="mentor">
+                          <div>
+                            <img
+                              className="mentor-image"
+                              src={e.MentorImage.formats.small.url}
+                              alt={e.Name}
+                            />
+                          </div>
+                          <div>
+                            <p className="mentor-name">{e.Name}</p>
+                            <p className="mentor-description">
+                              {e.Description}
+                            </p>
+                          </div>
                         </div>
-                        <div>
-                          <p className="mentor-name">{e.Name}</p>
-                          <p className="mentor-description">{e.Description}</p>
-                        </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
-                </div>
+                ) : null}
               </div>
             </div>
           </div>
