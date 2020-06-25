@@ -18,7 +18,7 @@ import { createBrowserHistory } from "history";
 const trackingId = "G-B1007MGV70";
 
 ReactGA.initialize(trackingId);
-
+console.log(trackingId);
 const App: React.FC = () => {
   const [flag, setFlag] = React.useState(true);
   React.useEffect(() => {
