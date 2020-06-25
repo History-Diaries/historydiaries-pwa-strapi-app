@@ -13,15 +13,17 @@ import SplashScreen from "./Components/SplashScreen";
 import ProgramDetails from "./Components/ProgramDetails";
 import ScrollTop from "./Components/ScrollTop";
 import ReactGA from "react-ga";
-
 import { createBrowserHistory } from "history";
+
 const history = createBrowserHistory();
+
 const trackingId = "G-B1007MGV70";
 ReactGA.initialize(trackingId);
 ReactGA.pageview(window.location.pathname + window.location.search);
+
 history.listen((location) => {
-  ReactGA.set({ page: location.pathname });
-  ReactGA.pageview(location.pathname);
+  ReactGA.set({ page: location.location.pathname });
+  ReactGA.pageview(location.location.pathname);
 });
 
 const App: React.FC = () => {
