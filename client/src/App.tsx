@@ -14,10 +14,8 @@ import ProgramDetails from "./Components/ProgramDetails";
 import ScrollTop from "./Components/ScrollTop";
 import ReactGA from "react-ga";
 
-const trackingId = "G-B1007MGV70";
-
-ReactGA.initialize(trackingId);
-
+ReactGA.initialize("UA-170801952-1");
+console.log("UA-170801952-1");
 const App: React.FC = () => {
   const [flag, setFlag] = React.useState(true);
   React.useEffect(() => {
