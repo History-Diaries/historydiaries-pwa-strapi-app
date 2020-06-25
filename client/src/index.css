@@ -992,6 +992,18 @@ h5 {
   width: 70%;
 }
 @media (max-width: 800px) {
+  .blog-image {
+    width: 100%;
+  }
+  .blog-content {
+    width: 100%;
+  }
+  .blog-content {
+    margin-left: 0 !important;
+  }
+  .blog-list-description {
+    font-size: 0.9em !important;
+  }
   .error-title {
     font-size: 1em !important;
   }
@@ -1279,6 +1291,12 @@ h5 {
   .shrink {
     transform: scale(0.5) !important;
     font-size: 0.7em;
+  }
+  .blog-content {
+    margin-left: 0px !important;
+  }
+  .blog-list-title {
+    font-size: 1.4em !important;
   }
 }
 .c-white {
