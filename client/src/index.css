@@ -1120,6 +1120,21 @@ strong {
   background: #ffd582;
   cursor: pointer;
 }
+.back-btn {
+  background-color: #ffc856;
+  padding: 20px;
+  font-family: var(--fb);
+  width: max-content;
+  color: white;
+  border-radius: 10px;
+  transform: scale(0.8);
+  margin-left: -10px;
+}
+.back-btn:hover {
+  background-color: #ffd582;
+  cursor: pointer;
+}
+
 @media (max-width: 800px) {
   .sub-cont {
     width: 98%;

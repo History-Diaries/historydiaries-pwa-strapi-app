@@ -18,7 +18,7 @@ interface Istate {
 
 type TParams = { id: string; program: string };
 
-const ProgramDetails = ({ match }: RouteComponentProps<TParams>) => {
+const ProgramDetails = ({ match, history }: RouteComponentProps<TParams>) => {
   let isCancelled = false;
   const program = match.params.program;
   const id = match.params.id;
@@ -97,6 +97,14 @@ const ProgramDetails = ({ match }: RouteComponentProps<TParams>) => {
           </div>
           <div className="event-section">
             <div className="e-sec-1">
+              <div
+                onClick={() => {
+                  history.push("/programs");
+                }}
+                className="back-btn no-mobile"
+              >
+                <i className="fas fa-arrow-left"></i> &nbsp; Back
+              </div>
               <div className="e-content">
                 <p className="heading-4">{state.data.Title}</p>
                 <div className="c-grey">
