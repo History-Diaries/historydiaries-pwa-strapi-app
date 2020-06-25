@@ -88,9 +88,9 @@ const ProgramDetails = ({ match, history }: RouteComponentProps<TParams>) => {
           className="home"
         >
           <div className="center">
-            <LazyLoadImage
+            {" "}
+            <img
               alt={state.data.Title}
-              effect="blur"
               className="banner mod no-shadow"
               src={state.data.Banner.url} // use normal <img> attributes as props
             />

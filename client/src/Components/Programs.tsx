@@ -75,7 +75,9 @@ const PastPrograms = (props: Props) => {
 
       try {
         const res = await axios.all([workshops, courses, contests, theater]);
-        const itemIndex = items.list.findIndex((e) => e.name == current);
+        const itemIndex: number = items.list.findIndex(
+          (e) => e.name == current
+        );
         setSlider(itemIndex);
         if (!isCancelled) {
           setState({
@@ -116,6 +118,7 @@ const PastPrograms = (props: Props) => {
         current: "Workshops",
         latestBanner: state.workshops.length > 0 ? state.workshops[0] : null,
       });
+      sessionStorage.setItem("prevSessionHD", "Workshops");
     }
     if (ItemName === "Contests") {
       setState({
@@ -123,6 +126,7 @@ const PastPrograms = (props: Props) => {
         current: "Contests",
         latestBanner: state.contests.length > 0 ? state.contests[0] : null,
       });
+      sessionStorage.setItem("prevSessionHD", "Contests");
     }
     if (ItemName === "Courses") {
       setState({
@@ -130,6 +134,7 @@ const PastPrograms = (props: Props) => {
         current: "Courses",
         latestBanner: state.courses.length > 0 ? state.courses[0] : null,
       });
+      sessionStorage.setItem("prevSessionHD", "Courses");
     }
     if (ItemName === "Theaters") {
       setState({
@@ -137,6 +142,7 @@ const PastPrograms = (props: Props) => {
         current: "Theaters",
         latestBanner: state.theaters.length > 0 ? state.theaters[0] : null,
       });
+      sessionStorage.setItem("prevSessionHD", "Theaters");
     }
   };
 
@@ -159,7 +165,6 @@ const PastPrograms = (props: Props) => {
             <div className="view-more-btn">
               <Link
                 onClick={() => {
-                  sessionStorage.setItem("prevSessionHD", state.current);
                   ReactGA.event({
                     category: "View More",
                     action: `User clicked view more ${data.Title}`,
