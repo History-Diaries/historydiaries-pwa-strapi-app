@@ -7,6 +7,7 @@ import FadeIn from "react-fade-in";
 import Empty from "../Assets/Images/amusement-park.svg";
 import { API } from "../config";
 import ReactGA from "react-ga";
+
 interface Props {}
 interface Istate {
   workshops: Array<object>;
@@ -161,10 +162,10 @@ const PastPrograms = (props: Props) => {
                   sessionStorage.setItem("prevSessionHD", state.current);
                   ReactGA.event({
                     category: "View More",
-                    action: `User clicked view more ${data.Tittle}`,
+                    action: `User clicked view more ${data.Title}`,
                   });
                 }}
-                to={`/program/${type}/${data._id}`}
+                to={`/program/${type}/${data.Title}`}
               >
                 View more.
               </Link>
@@ -301,7 +302,7 @@ const PastPrograms = (props: Props) => {
             {state.latestBanner ? (
               <FadeIn>
                 <Link
-                  to={`/program/${state.current}/${state.latestBanner._id}`}
+                  to={`/program/${state.current}/${state.latestBanner.Title}`}
                 >
                   <div className="cont-holder">
                     <h1 className="white mb-1">{state.latestBanner.Title}</h1>
@@ -318,11 +319,13 @@ const PastPrograms = (props: Props) => {
             )}
           </div>
         </div>
-        <div className="center">
-          <FadeIn>
-            <div className="heading-2 mt-3">{state.current}</div>
-          </FadeIn>
-        </div>
+        {state.loading ? null : (
+          <div className="center">
+            <FadeIn>
+              <div className="heading-2 mt-3">{state.current}</div>
+            </FadeIn>
+          </div>
+        )}
       </div>
       <div className="card-holder">{switchRenderer(state.current)}</div>
       <Footer />

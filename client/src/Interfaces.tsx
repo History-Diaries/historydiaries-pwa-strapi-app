@@ -1,3 +1,3 @@
 export interface Istore {
-  name: string;
+  programs: any;
 }

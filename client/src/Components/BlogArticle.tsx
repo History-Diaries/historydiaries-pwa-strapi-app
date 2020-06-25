@@ -31,7 +31,7 @@ const BlogArticle = ({ match }: RouteChildrenProps<TParams>) => {
 
     const getData = async () => {
       try {
-        const response = await axios.get(`${API}/blogs/${id}`);
+        const response = await axios.get(`${API}/blogs?Title=${id}`);
         ReactGA.pageview(`/${response.data.Title}`);
         ReactGA.event({
           category: "Blog",
@@ -41,7 +41,7 @@ const BlogArticle = ({ match }: RouteChildrenProps<TParams>) => {
           setState({
             ...state,
             loading: false,
-            data: response.data,
+            data: response.data[0],
           });
         }
       } catch (error) {

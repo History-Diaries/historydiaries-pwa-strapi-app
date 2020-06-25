@@ -113,7 +113,9 @@ const Blog = (props: Props) => {
     >
       <div className="home mt-b">
         {state.latestArticle ? (
-          <Link to={`/blog/${state.latestArticle && state.latestArticle._id}`}>
+          <Link
+            to={`/blog/${state.latestArticle && state.latestArticle.Title}`}
+          >
             <div className="banner h-1">
               <div className="banner-cont">
                 <p className="banner-text t2">
@@ -159,7 +161,7 @@ const Blog = (props: Props) => {
                     </div>
                     <div className="blog-content">
                       <div className="blog-list-title">
-                        <Link to={`/blog/${e._id}`}>
+                        <Link to={`/blog/${e.Title}`}>
                           <p>{e.Title}</p>
                         </Link>
                       </div>
