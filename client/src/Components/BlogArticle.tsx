@@ -33,6 +33,10 @@ const BlogArticle = ({ match }: RouteChildrenProps<TParams>) => {
       try {
         const response = await axios.get(`${API}/blogs/${id}`);
         ReactGA.pageview(`/${response.data.Title}`);
+        ReactGA.event({
+          category: "Blog",
+          action: `User visited ${response.data.Title}`,
+        });
         if (!isCancelled) {
           setState({
             ...state,

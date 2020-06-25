@@ -36,7 +36,10 @@ const ProgramDetails = ({ match }: RouteComponentProps<TParams>) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${API}/${program}/${id}`);
-
+        ReactGA.event({
+          category: "Program",
+          action: `User visited ${response.data.Title}`,
+        });
         if (!isCancelled) {
           setState({
             ...state,

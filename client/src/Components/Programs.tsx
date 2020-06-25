@@ -145,7 +145,17 @@ const PastPrograms = (props: Props) => {
         <div className="e-card-sec-2">
           <div className="btn-cont">
             <div className="view-more-btn">
-              <Link to={`/program/${type}/${data._id}`}>View more.</Link>
+              <Link
+                onClick={() => {
+                  ReactGA.event({
+                    category: "View More",
+                    action: `User clicked view more ${data.Tittle}`,
+                  });
+                }}
+                to={`/program/${type}/${data._id}`}
+              >
+                View more.
+              </Link>
             </div>
           </div>
         </div>

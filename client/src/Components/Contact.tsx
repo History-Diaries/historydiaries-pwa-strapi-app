@@ -24,6 +24,10 @@ const Contact = (props: Props) => {
     },
   });
   const onSubmit = async (values: any) => {
+    ReactGA.event({
+      category: "Idea",
+      action: `User submitted Idea`,
+    });
     const { name, email, idea, phone }: any = values;
     const config = {
       headers: {
