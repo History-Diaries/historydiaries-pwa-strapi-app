@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import axios from "axios";
 import { API } from "../config";
 import Footer from "./Footer";
+import { format } from "date-fns";
 interface Istate {
   data: any;
   loading: boolean;
@@ -124,7 +125,9 @@ const ProgramDetails = ({ match }: RouteComponentProps<TParams>) => {
               <div className="e-list">
                 <div className="e-item">
                   <p className="t-def">Deadline</p>
-                  <p className="c-grey-m">26 June, 2020</p>
+                  <p className="c-grey-m">
+                    {format(new Date(state.data.createdAt), "do MMM yyyy")}
+                  </p>
                 </div>
                 <div className="e-item">
                   <p className="t-def">Fee</p>
