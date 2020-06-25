@@ -25,7 +25,6 @@ const ProgramDetails = ({ match }: RouteComponentProps<TParams>) => {
   const program = match.params.program;
   const id = match.params.id;
 
-  console.log(program, id);
   const [state, setState] = React.useState<Istate>({
     data: null,
     loading: true,
@@ -36,8 +35,6 @@ const ProgramDetails = ({ match }: RouteComponentProps<TParams>) => {
 
     const fetchData = async () => {
       const response = await axios.get(`${API}/${program}/${id}`);
-
-      console.log(response);
 
       setState({
         ...state,
@@ -130,7 +127,7 @@ const ProgramDetails = ({ match }: RouteComponentProps<TParams>) => {
                   <p className="c-grey-m">26 June, 2020</p>
                 </div>
                 <div className="e-item">
-                  <p className="t-def">Deadline</p>
+                  <p className="t-def">Fee</p>
                   <p className="c-grey-m">
                     {state.data.Fee ? "₹" + state.data.Fee : "Free"}
                   </p>
