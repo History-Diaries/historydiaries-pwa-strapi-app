@@ -33,10 +33,10 @@ const PastPrograms = (props: Props) => {
   });
   React.useEffect(() => {
     const fetchData = async () => {
-      const workshops = axios.get(`${API}/workshops?_sort=date:DESC`);
-      const courses = axios.get(`${API}/courses?_sort=date:DESC`);
-      const contests = axios.get(`${API}/contests?_sort=date:DESC`);
-      const theater = axios.get(`${API}/theaters?_sort=date:DESC`);
+      const workshops = axios.get(`${API}/workshops?_sort=Date:DESC`);
+      const courses = axios.get(`${API}/courses?_sort=Date:DESC`);
+      const contests = axios.get(`${API}/contests?_sort=Date:DESC`);
+      const theater = axios.get(`${API}/theaters?_sort=Date:DESC`);
 
       try {
         const res = await axios.all([workshops, courses, contests, theater]);
