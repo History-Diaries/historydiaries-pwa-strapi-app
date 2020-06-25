@@ -985,6 +985,12 @@ h5 {
 .partner-list::-webkit-scrollbar {
   display: none;
 }
+.blog-image {
+  width: 30%;
+}
+.blog-content {
+  width: 70%;
+}
 @media (max-width: 800px) {
   .error-title {
     font-size: 1em !important;
