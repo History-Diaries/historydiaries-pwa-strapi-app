@@ -16,26 +16,34 @@ interface Istate {
   message: string;
   latestArticle: any;
   page: number;
+  getLoading: boolean;
+  moreMessage: string;
 }
 const Blog = (props: Props) => {
   ReactGA.pageview("/blog");
-  let isCancelled = false;
+
   const [state, setState] = React.useState<Istate>({
     data: [],
     loading: true,
     message: "",
     latestArticle: null,
     page: 0,
+    getLoading: false,
+    moreMessage: "",
   });
 
   React.useEffect(() => {
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 200);
-
+  }, []);
+  React.useEffect(() => {
+    let isCancelled = false;
     const getData = async () => {
       try {
-        const response = await axios.get(`${API}/blogs?_sort=createdAt:DESC`);
+        const response = await axios.get(
+          `${API}/blogs?_sort=createdAt:DESC&_start=${state.page}&_limit=5`
+        );
         if (!isCancelled) {
           setState({
             ...state,
@@ -59,6 +67,43 @@ const Blog = (props: Props) => {
       isCancelled = true;
     };
   }, []);
+
+  const handleLoadMore = async () => {
+    const page = state.page;
+    const startFrom = (page + 1) * 5;
+    console.log("start", startFrom);
+    try {
+      setState({
+        ...state,
+        getLoading: true,
+      });
+      const response = await axios.get(
+        `${API}/blogs?_sort=createdAt:DESC&_start=${startFrom}&_limit=5`
+      );
+      console.log(response);
+      if (response.data.length > 0) {
+        setState({
+          ...state,
+          data: [...state.data, ...response.data],
+          getLoading: false,
+          page: startFrom,
+        });
+      } else {
+        setState({
+          ...state,
+          getLoading: false,
+          moreMessage: "No more articles",
+        });
+      }
+    } catch (error) {
+      setState({
+        ...state,
+        getLoading: false,
+        moreMessage: "Error Occurred",
+      });
+    }
+  };
+
   if (state.message) return <Redirect to="/error" />;
   return (
     <motion.div
@@ -101,34 +146,59 @@ const Blog = (props: Props) => {
               <div className="loader"></div>{" "}
             </div>
           ) : state.data.length > 0 ? (
-            <FadeIn>
-              {state.data.map((e, i) => (
-                <div key={i} className="blog-item">
-                  <div className="blog-image">
-                    <img
-                      className="blog-list-image"
-                      src={e.Banner.url}
-                      alt={e.Banner.Tittle}
-                    />
-                  </div>
-                  <div className="blog-content">
-                    <div className="blog-list-title">
-                      <Link to={`/blog/${e._id}`}>
-                        <p>{e.Title}</p>
-                      </Link>
+            <>
+              <FadeIn>
+                {state.data.map((e, i) => (
+                  <div key={i} className="blog-item">
+                    <div className="blog-image">
+                      <img
+                        className="blog-list-image"
+                        src={e.Banner.url}
+                        alt={e.Banner.Tittle}
+                      />
                     </div>
-                    <div className="blog-list-description">{e.Summary}</div>
-                    <div className="blog-list-date mt-1">
-                      <i className="fa fa-clock m-a" aria-hidden="true"></i>
-                      &nbsp;&nbsp;
-                      <div>{format(new Date(e.createdAt), "do MMM yyyy")}</div>
-                      &nbsp;&nbsp;
-                      <div>{format(new Date(e.createdAt), "HH:MM:aaaa")}</div>
+                    <div className="blog-content">
+                      <div className="blog-list-title">
+                        <Link to={`/blog/${e._id}`}>
+                          <p>{e.Title}</p>
+                        </Link>
+                      </div>
+                      <div className="blog-list-description">{e.Summary}</div>
+                      <div className="blog-list-date mt-1">
+                        <i className="fa fa-clock m-a" aria-hidden="true"></i>
+                        &nbsp;&nbsp;
+                        <div>
+                          {format(new Date(e.createdAt), "do MMM yyyy")}
+                        </div>
+                        &nbsp;&nbsp;
+                        <div>{format(new Date(e.createdAt), "HH:MM:aaaa")}</div>
+                      </div>
                     </div>
                   </div>
+                ))}
+              </FadeIn>
+              {!(
+                state.page == 0 && state.data.length >= 5
+              ) ? null : state.getLoading ? (
+                <div className="center">
+                  {" "}
+                  <div className="loader"></div>{" "}
                 </div>
-              ))}
-            </FadeIn>
+              ) : (
+                <div className="center">
+                  <p className="loadmore" onClick={handleLoadMore}>
+                    Load More
+                  </p>
+                </div>
+              )}
+              <div className="center">
+                <div>
+                  {state.moreMessage.length > 0 ? (
+                    <p>{state.moreMessage}</p>
+                  ) : null}
+                </div>
+              </div>
+            </>
           ) : (
             <div className="icon-manage">
               <div>

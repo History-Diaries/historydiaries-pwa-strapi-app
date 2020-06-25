@@ -1105,6 +1105,21 @@ strong {
   align-items: center;
   margin-left: 10px;
 }
+.sm {
+  transform: scale(0.5) !important;
+}
+.loadmore {
+  margin: 20px 0px;
+  background: #ffc856;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: var(--fb);
+}
+.loadmore:hover {
+  background: #ffd582;
+  cursor: pointer;
+}
 @media (max-width: 800px) {
   .sub-cont {
     width: 98%;

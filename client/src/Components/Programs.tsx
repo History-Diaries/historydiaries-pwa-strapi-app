@@ -19,55 +19,6 @@ interface Istate {
   current: string;
 }
 const PastPrograms = (props: Props) => {
-  ReactGA.pageview("/programs");
-  let isCancelled = false;
-
-  const [state, setState] = React.useState<Istate>({
-    workshops: [],
-    courses: [],
-    contests: [],
-    theaters: [],
-    loading: true,
-    message: "",
-    latestBanner: null,
-    current: "Workshops",
-  });
-  React.useEffect(() => {
-    const fetchData = async () => {
-      const workshops = axios.get(`${API}/workshops?_sort=createdAt:DESC`);
-      const courses = axios.get(`${API}/courses?_sort=createdAt:DESC`);
-      const contests = axios.get(`${API}/contests?_sort=createdAt:DESC`);
-      const theater = axios.get(`${API}/theaters?_sort=createdAt:DESC`);
-
-      try {
-        const res = await axios.all([workshops, courses, contests, theater]);
-        if (!isCancelled) {
-          setState({
-            ...state,
-            workshops: res[0].data,
-            courses: res[1].data,
-            contests: res[2].data,
-            theaters: res[3].data,
-            latestBanner: res[0].data.length > 0 ? res[0].data[0] : null,
-            loading: false,
-          });
-        }
-      } catch (error) {
-        setState({
-          ...state,
-          loading: false,
-          message: "Fetch Failed",
-        });
-      }
-    };
-
-    fetchData();
-    return () => {
-      isCancelled = true;
-    };
-  }, []);
-
-  const itemRef = React.useRef(null);
   const [items, setItems] = React.useState({
     list: [
       {
@@ -88,8 +39,9 @@ const PastPrograms = (props: Props) => {
       },
     ],
   });
-
-  const handleItemClick = (index: number) => {
+  ReactGA.pageview("/programs");
+  let isCancelled = false;
+  const setSlider = (index: number): string => {
     const dupList = items.list;
     dupList.map((e) => (e.state = false));
     dupList[index].state = true;
@@ -98,28 +50,87 @@ const PastPrograms = (props: Props) => {
       list: dupList,
     });
 
-    if (dupList[index].name === "Workshops") {
+    return dupList[index].name;
+  };
+  const [state, setState] = React.useState<Istate>({
+    workshops: [],
+    courses: [],
+    contests: [],
+    theaters: [],
+    loading: true,
+    message: "",
+    latestBanner: null,
+    current: "Workshops",
+  });
+
+  React.useEffect(() => {
+    const current = sessionStorage.getItem("prevSessionHD") || "Workshops";
+
+    const fetchData = async () => {
+      const workshops = axios.get(`${API}/workshops?_sort=createdAt:DESC`);
+      const courses = axios.get(`${API}/courses?_sort=createdAt:DESC`);
+      const contests = axios.get(`${API}/contests?_sort=createdAt:DESC`);
+      const theater = axios.get(`${API}/theaters?_sort=createdAt:DESC`);
+
+      try {
+        const res = await axios.all([workshops, courses, contests, theater]);
+        const itemIndex = items.list.findIndex((e) => e.name == current);
+        setSlider(itemIndex);
+        if (!isCancelled) {
+          setState({
+            ...state,
+            workshops: res[0].data,
+            courses: res[1].data,
+            contests: res[2].data,
+            theaters: res[3].data,
+            latestBanner: res[0].data.length > 0 ? res[0].data[0] : null,
+            loading: false,
+            current,
+          });
+        }
+      } catch (error) {
+        setState({
+          ...state,
+          loading: false,
+          current,
+          message: "Fetch Failed",
+        });
+      }
+    };
+
+    fetchData();
+    return () => {
+      isCancelled = true;
+    };
+  }, []);
+
+  const itemRef = React.useRef(null);
+
+  const handleItemClick = (index: number) => {
+    const ItemName = setSlider(index);
+
+    if (ItemName === "Workshops") {
       setState({
         ...state,
         current: "Workshops",
         latestBanner: state.workshops.length > 0 ? state.workshops[0] : null,
       });
     }
-    if (dupList[index].name === "Contests") {
+    if (ItemName === "Contests") {
       setState({
         ...state,
         current: "Contests",
         latestBanner: state.contests.length > 0 ? state.contests[0] : null,
       });
     }
-    if (dupList[index].name === "Courses") {
+    if (ItemName === "Courses") {
       setState({
         ...state,
         current: "Courses",
         latestBanner: state.courses.length > 0 ? state.courses[0] : null,
       });
     }
-    if (dupList[index].name === "Theaters") {
+    if (ItemName === "Theaters") {
       setState({
         ...state,
         current: "Theaters",
@@ -147,6 +158,7 @@ const PastPrograms = (props: Props) => {
             <div className="view-more-btn">
               <Link
                 onClick={() => {
+                  sessionStorage.setItem("prevSessionHD", state.current);
                   ReactGA.event({
                     category: "View More",
                     action: `User clicked view more ${data.Tittle}`,

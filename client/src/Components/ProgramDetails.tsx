@@ -36,6 +36,7 @@ const ProgramDetails = ({ match }: RouteComponentProps<TParams>) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${API}/${program}/${id}`);
+
         ReactGA.event({
           category: "Program",
           action: `User visited ${response.data.Title}`,
@@ -143,12 +144,15 @@ const ProgramDetails = ({ match }: RouteComponentProps<TParams>) => {
             </div>
             <div className="e-sec-2">
               <div className="e-list">
-                <div className="e-item">
-                  <p className="t-def">Deadline</p>
-                  <p className="c-grey-m">
-                    {format(new Date(state.data.Date), "do MMM yyyy")}
-                  </p>
-                </div>
+                {state.data.Date && (
+                  <div className="e-item">
+                    <p className="t-def">Deadline</p>
+                    <p className="c-grey-m">
+                      {format(new Date(state.data.Date), "do MMM yyyy")}
+                    </p>
+                  </div>
+                )}
+
                 <div className="e-item">
                   <p className="t-def">Fee</p>
                   <p className="c-grey-m">
