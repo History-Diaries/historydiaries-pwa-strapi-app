@@ -799,6 +799,7 @@ h5 {
 }
 .reactMarkdown > ul > li {
   margin-bottom: 10px !important;
+  margin-left: 20px !important;
 }
 .loader {
   border: 16px solid #f3f3f3;
