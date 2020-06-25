@@ -482,6 +482,11 @@ a {
   margin: 20px;
   width: 400px;
   margin-top: 80px;
+  min-height: 400px !important;
+  max-height: 800px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .card-title {
   font-size: 1em;
@@ -517,12 +522,13 @@ a {
   padding: 15px;
 }
 .card-holder {
-  width: 80%;
+  width: 90%;
   margin: auto;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 50px;
+  flex-direction: row !important;
 }
 .w-2 {
   width: 80%;

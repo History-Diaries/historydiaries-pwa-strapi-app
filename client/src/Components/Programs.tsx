@@ -129,8 +129,8 @@ const PastPrograms = (props: Props) => {
 
   const EventCard = (data: any, type: string) => {
     return (
-      <div key={data._id}>
-        <div className="e-card">
+      <div key={data._id} className="e-card">
+        <div className="e-card-sec1">
           <div>
             <img
               className="event-image"
@@ -140,6 +140,8 @@ const PastPrograms = (props: Props) => {
           </div>
           <p className="card-title">{data.Title}</p>
           <p className="card-details">{data.Summary}</p>
+        </div>
+        <div className="e-card-sec-2">
           <div className="btn-cont">
             <div className="view-more-btn">
               <Link to={`/program/${type}/${data._id}`}>View more.</Link>
@@ -152,7 +154,7 @@ const PastPrograms = (props: Props) => {
 
   const workshop = () => {
     return (
-      <div>
+      <>
         {state.loading ? (
           <div className="loader"></div>
         ) : state.workshops.length > 0 ? (
@@ -168,12 +170,12 @@ const PastPrograms = (props: Props) => {
             </div>
           </div>
         )}
-      </div>
+      </>
     );
   };
   const course = () => {
     return (
-      <div>
+      <>
         {state.loading ? (
           <div className="loader"></div>
         ) : state.courses.length > 0 ? (
@@ -189,12 +191,12 @@ const PastPrograms = (props: Props) => {
             </div>
           </div>
         )}
-      </div>
+      </>
     );
   };
   const contest = () => {
     return (
-      <div>
+      <>
         {state.loading ? (
           <div className="loader"></div>
         ) : state.contests.length > 0 ? (
@@ -210,12 +212,12 @@ const PastPrograms = (props: Props) => {
             </div>
           </div>
         )}
-      </div>
+      </>
     );
   };
   const theater = () => {
     return (
-      <div>
+      <>
         {state.loading ? (
           <div className="loader"></div>
         ) : state.theaters.length > 0 ? (
@@ -231,7 +233,7 @@ const PastPrograms = (props: Props) => {
             </div>
           </div>
         )}
-      </div>
+      </>
     );
   };
 
