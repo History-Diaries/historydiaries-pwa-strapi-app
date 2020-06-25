@@ -18,14 +18,14 @@ const App: React.FC = () => {
   React.useEffect(() => {
     setTimeout(() => {
       setFlag(false);
-    }, 1500);
+    }, 900);
 
     window.scrollTo(0, 0);
   });
   const style =
     "color:red; font-size:16px; font-weight: bold; -webkit-text-stroke: 1px black;";
   console.log("%c Developed by Saran", style);
-  console.log("🔥🔥", "https://github.com/saranonearth", "🔥🔥");
+  console.log("🔥🔥 ", "https://github.com/saranonearth", "🔥🔥");
   if (flag) return <SplashScreen />;
   return (
     <BrowserRouter>

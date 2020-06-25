@@ -49,7 +49,7 @@ const Contact = (props: Props) => {
     } catch (error) {
       setState({
         loading: false,
-        message: "Error occured",
+        message: "Error occurred",
       });
     }
   };
