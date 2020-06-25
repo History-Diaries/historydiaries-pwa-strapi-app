@@ -79,6 +79,24 @@ const PastPrograms = (props: Props) => {
           (e) => e.name == current
         );
         setSlider(itemIndex);
+        let tempIndex;
+        switch (itemIndex) {
+          case 0:
+            tempIndex = 0;
+            break;
+          case 1:
+            tempIndex = 3;
+            break;
+          case 2:
+            tempIndex = 2;
+            break;
+          case 3:
+            tempIndex = 1;
+            break;
+          default:
+            tempIndex = 0;
+        }
+        console.log(itemIndex, tempIndex);
         if (!isCancelled) {
           setState({
             ...state,
@@ -86,7 +104,8 @@ const PastPrograms = (props: Props) => {
             courses: res[1].data,
             contests: res[2].data,
             theaters: res[3].data,
-            latestBanner: res[0].data.length > 0 ? res[0].data[0] : null,
+            latestBanner:
+              res[tempIndex].data.length > 0 ? res[tempIndex].data[0] : null,
             loading: false,
             current,
           });
