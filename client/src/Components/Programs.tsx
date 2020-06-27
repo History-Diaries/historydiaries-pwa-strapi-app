@@ -186,10 +186,10 @@ const PastPrograms = (props: Props) => {
                 onClick={() => {
                   ReactGA.event({
                     category: "View More",
-                    action: `User clicked view more ${data.Title}`,
+                    action: `User clicked view more ${data.Tid}`,
                   });
                 }}
-                to={`/program/${type}/${data.Title}`}
+                to={`/program/${type}/${data.Tid}`}
               >
                 View more
               </Link>

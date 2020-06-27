@@ -787,9 +787,10 @@ textarea {
 .c-red {
   color: rgb(216, 64, 64);
 }
-.reactMarkdown p {
-  display: flex;
-  justify-content: center;
+.reactMarkdown p > img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .reactMarkdown > p {
@@ -850,7 +851,10 @@ strong {
     -webkit-transform: rotate(360deg);
   }
 }
-
+.more-mar {
+  margin-bottom: 200px !important;
+  margin-top: 200px !important;
+}
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -1195,6 +1199,18 @@ strong {
   margin: 10px 10px;
 }
 
+.reactMarkdown img {
+  max-width: 80%;
+}
+.address {
+  text-align: center;
+  width: 20%;
+  margin: auto;
+  margin-top: 20px;
+}
+.c-grey-m {
+  font-size: 0.9em;
+}
 @media (max-width: 800px) {
   .card-dialouge {
     flex-direction: column;

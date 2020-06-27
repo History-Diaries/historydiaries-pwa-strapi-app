@@ -140,7 +140,7 @@ const Blog = (props: Props) => {
                     </div>
                     <div className="blog-content">
                       <div className="blog-list-title">
-                        <Link to={`/blog/${e.Title}`}>
+                        <Link to={`/blog/${e.Tid}`}>
                           <p>{e.Title}</p>
                         </Link>
                       </div>

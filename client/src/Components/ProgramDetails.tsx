@@ -35,8 +35,8 @@ const ProgramDetails = ({ match, history }: RouteComponentProps<TParams>) => {
 
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${API}/${program}?Title=${id}`);
-        console.log(response);
+        const response = await axios.get(`${API}/${program}?Tid=${id}`);
+
         ReactGA.event({
           category: "Program",
           action: `User visited ${response.data.Title}`,
@@ -166,7 +166,27 @@ const ProgramDetails = ({ match, history }: RouteComponentProps<TParams>) => {
                     </p>
                   </div>
                 )}
+                {state.data.TimeSpan && (
+                  <div className="e-item">
+                    <p className="t-def">Time</p>
 
+                    <p className="c-grey-m">{state.data.TimeSpan}</p>
+                  </div>
+                )}
+                {state.data.Duration && (
+                  <div className="e-item">
+                    <p className="t-def">Duration</p>
+
+                    <p className="c-grey-m">{state.data.Duration}</p>
+                  </div>
+                )}
+                {state.data.Venue && (
+                  <div className="e-item">
+                    <p className="t-def">Venue</p>
+
+                    <p className="c-grey-m">{state.data.Venue}</p>
+                  </div>
+                )}
                 {state.data.Fee ? (
                   <div className="e-item">
                     {program == "theaters" ? (

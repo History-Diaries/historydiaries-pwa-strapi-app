@@ -8,6 +8,7 @@ import { API } from "../config";
 import { stat } from "fs";
 import { format } from "date-fns";
 import ReactGA from "react-ga";
+import Sandbox from "../Assets/Images/sandbox.svg";
 interface Istate {
   data: any;
   loading: boolean;
@@ -31,7 +32,7 @@ const BlogArticle = ({ match }: RouteChildrenProps<TParams>) => {
 
     const getData = async () => {
       try {
-        const response = await axios.get(`${API}/blogs?Title=${id}`);
+        const response = await axios.get(`${API}/blogs?Tid=${id}`);
         ReactGA.pageview(`/${response.data.Title}`);
         ReactGA.event({
           category: "Blog",
@@ -63,7 +64,6 @@ const BlogArticle = ({ match }: RouteChildrenProps<TParams>) => {
   if (state.notFound) return <Redirect to="/error" />;
   return (
     <div>
-      <div></div>
       {state.loading ? (
         <div className="loading-screen">
           <div className="loader-holder">
@@ -137,7 +137,15 @@ const BlogArticle = ({ match }: RouteChildrenProps<TParams>) => {
           </div>
         </>
       ) : (
-        <p>No article found</p>
+        <div className="icon-manage more-mar">
+          <div>
+            <img className="empty" src={Sandbox} alt="empty" />
+          </div>
+
+          <div className="mt-2">
+            <p>No article found.</p>
+          </div>
+        </div>
       )}
       <Footer />
     </div>
