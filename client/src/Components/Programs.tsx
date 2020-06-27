@@ -191,7 +191,7 @@ const PastPrograms = (props: Props) => {
                 }}
                 to={`/program/${type}/${data.Title}`}
               >
-                View more.
+                View more
               </Link>
             </div>
           </div>
@@ -322,25 +322,10 @@ const PastPrograms = (props: Props) => {
               </div>
             ))}
           </div>
-          <div className="no-mobile e-banner">
-            {state.latestBanner ? (
-              <FadeIn>
-                <Link
-                  to={`/program/${state.current}/${state.latestBanner.Title}`}
-                >
-                  <div className="cont-holder">
-                    <h1 className="white mb-1">{state.latestBanner.Title}</h1>
-                    <p>{state.latestBanner.Summary}</p>
-                  </div>
-                </Link>
-              </FadeIn>
-            ) : (
-              <FadeIn>
-                <div className="cont-holder">
-                  <h1 className="white">Programs</h1>
-                </div>
-              </FadeIn>
-            )}
+          <div className="e-banner">
+            <div className="cont-holder">
+              <h1 className="white">Programs</h1>
+            </div>
           </div>
         </div>
         {state.loading ? null : (

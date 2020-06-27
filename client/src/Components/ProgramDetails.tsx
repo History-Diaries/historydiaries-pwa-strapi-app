@@ -88,12 +88,14 @@ const ProgramDetails = ({ match, history }: RouteComponentProps<TParams>) => {
           className="home"
         >
           <div className="center">
-            {" "}
-            <img
-              alt={state.data.Title}
-              className="banner mod no-shadow"
-              src={state.data.Banner.url} // use normal <img> attributes as props
-            />
+            <div className="banner-holder">
+              <LazyLoadImage
+                alt={"blog"}
+                effect="blur"
+                className="banner-image mod"
+                src={state.data.Banner.url} // use normal <img> attributes as props
+              />
+            </div>
           </div>
           <div className="event-section">
             <div className="e-sec-1">
@@ -127,9 +129,7 @@ const ProgramDetails = ({ match, history }: RouteComponentProps<TParams>) => {
                         opts={{
                           height: "300",
                           width: "640",
-                          playerVars: {
-                            autoplay: 1,
-                          },
+                          playerVars: {},
                         }}
                       />
                     </BrowserView>
@@ -154,37 +154,40 @@ const ProgramDetails = ({ match, history }: RouteComponentProps<TParams>) => {
               <div className="e-list">
                 {state.data.Date && (
                   <div className="e-item">
-                    <p className="t-def">Deadline</p>
+                    {program == "workshops" || program == "theaters" ? (
+                      <p className="t-def">Date</p>
+                    ) : program == "courses" ? (
+                      <p className="t-def">Start Date</p>
+                    ) : (
+                      <p className="t-def">Date</p>
+                    )}
                     <p className="c-grey-m">
                       {format(new Date(state.data.Date), "do MMM yyyy")}
                     </p>
                   </div>
                 )}
 
-                <div className="e-item">
-                  <p className="t-def">Fee</p>
-                  <p className="c-grey-m">
-                    {state.data.Fee ? "₹" + state.data.Fee : "Free"}
-                  </p>
-                </div>
-
-                <div className="e-item">
-                  {state.data.RegistrationLink && (
-                    <div
-                      className="c-btn m-btn spread"
-                      onClick={() =>
-                        handleRegister(state.data.RegistrationLink)
-                      }
-                    >
-                      Register
-                    </div>
-                  )}
-                </div>
+                {state.data.Fee ? (
+                  <div className="e-item">
+                    {program == "theaters" ? (
+                      <p className="t-def">Cost</p>
+                    ) : (
+                      <p className="t-def">Fee</p>
+                    )}
+                    <p className="c-grey-m">
+                      {state.data.Fee ? "₹" + state.data.Fee : "Free"}
+                    </p>
+                  </div>
+                ) : null}
                 <br />
                 {state.data.Mentor && state.data.Mentor.length > 0 ? (
                   <div className="e-item">
                     <div className="center">
-                      <p className="t-def">Expert</p>
+                      {state.data.Mentor.length > 1 ? (
+                        <p className="t-def">Experts</p>
+                      ) : (
+                        <p className="t-def">Expert</p>
+                      )}
                     </div>
                     <div className="mentors">
                       {state.data.Mentor.map((e: any, i: any) => (
@@ -207,6 +210,18 @@ const ProgramDetails = ({ match, history }: RouteComponentProps<TParams>) => {
                     </div>
                   </div>
                 ) : null}
+                <div className="e-item">
+                  {state.data.RegistrationLink && (
+                    <div
+                      className="c-btn m-btn spread"
+                      onClick={() =>
+                        handleRegister(state.data.RegistrationLink)
+                      }
+                    >
+                      Register
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>

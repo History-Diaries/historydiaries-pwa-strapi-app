@@ -112,35 +112,14 @@ const Blog = (props: Props) => {
       exit={{ opacity: 0 }}
     >
       <div className="home mt-b">
-        {state.latestArticle ? (
-          <Link
-            to={`/blog/${state.latestArticle && state.latestArticle.Title}`}
-          >
-            <div className="banner h-1">
-              <div className="banner-cont">
-                <p className="banner-text t2">
-                  {state.latestArticle && state.latestArticle.Title}
-                </p>
-                <div className="w-2">
-                  <p className="t-3">
-                    {state.latestArticle && state.latestArticle.Summary}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </Link>
-        ) : (
-          <div className="banner h-1">
-            <div className="banner-cont">
-              <p className="banner-text t2">{"History Diaries Blog"}</p>
-              <div className="w-2">
-                <p className="t-3">
-                  {state.latestArticle && state.latestArticle.Summary}
-                </p>
-              </div>
+        <div className="banner h-1">
+          <div className="banner-cont">
+            <p className="banner-text t2">{"History Diaries Blog"}</p>
+            <div className="w-2">
+              <p className="t-3"></p>
             </div>
           </div>
-        )}
+        </div>
         <div className="blog-list">
           {state.loading ? (
             <div className="center">
@@ -173,7 +152,7 @@ const Blog = (props: Props) => {
                           {format(new Date(e.createdAt), "do MMM yyyy")}
                         </div>
                         &nbsp;&nbsp;
-                        <div>{format(new Date(e.createdAt), "HH:MM:aaaa")}</div>
+                        <div>{format(new Date(e.createdAt), "HH:MM a")}</div>
                       </div>
                     </div>
                   </div>

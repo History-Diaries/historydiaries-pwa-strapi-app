@@ -106,6 +106,37 @@ const Home = (props: Props) => {
           </div>
 
           {/* Content section */}
+          <div id="our-impact" className="data-section">
+            <div className="center">
+              <p className="heading ft-size-2 noborder">Our Impact</p>
+            </div>
+            <div className="data-row">
+              <div className="data-cont">
+                <div className="data">200+</div>
+                <div>
+                  <p className="sub-data">Students</p>
+                </div>
+              </div>
+              <div className="data-cont">
+                <div className="data">14+</div>
+                <div>
+                  <p className="sub-data">Events</p>
+                </div>
+              </div>
+              <div className="data-cont">
+                <div className="data">50+</div>
+                <div>
+                  <p className="sub-data">Schools</p>
+                </div>
+              </div>
+              <div className="data-cont">
+                <div className="data">100+</div>
+                <div>
+                  <p className="sub-data">Teachers</p>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className="section-main">
             <div className="section s-1">
               <div className="subsection s-1">
@@ -177,32 +208,8 @@ const Home = (props: Props) => {
             </div>
           </div>
         </div>
-        <div className="data-section">
-          <div className="center">
-            <p className="heading ft-size-2 noborder">Our Impact</p>
-          </div>
-          <div className="data-row">
-            <div className="data-cont">
-              <div className="data">200+</div>
-              <div>
-                <p className="sub-data">Students</p>
-              </div>
-            </div>
-            <div className="data-cont">
-              <div className="data">14+</div>
-              <div>
-                <p className="sub-data">Events</p>
-              </div>
-            </div>
-            <div className="data-cont">
-              <div className="data">50+</div>
-              <div>
-                <p className="sub-data">Schools</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="out-team" className="team-section">
+
+        <div id="our-team" className="team-section">
           <div className="center">
             <p className="heading color-white">Our Team</p>
           </div>
@@ -251,7 +258,7 @@ const Home = (props: Props) => {
           </div>
         </div>
 
-        <div className="t-section">
+        <div id="testimonials" className="t-section">
           <div className="center">
             <p className="heading ft-size-2 noborder">Testimonials</p>
           </div>

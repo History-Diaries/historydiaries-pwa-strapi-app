@@ -2,7 +2,6 @@ import React from "react";
 import Logo from "../Assets/Images/Logo.png";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-
 interface Props {}
 
 const Navbar = (props: Props) => {
@@ -12,7 +11,7 @@ const Navbar = (props: Props) => {
     handleMenu.current.classList.toggle("change");
     setMenu(!menu);
   };
-
+  const [showMore, setShowMore] = React.useState(false);
   return (
     <>
       <div className="navbar">
@@ -24,10 +23,36 @@ const Navbar = (props: Props) => {
         </Link>
 
         <div className="nav-items no-mobile">
-          <div className="nav-item">
-            <HashLink className="color-secondary" to="/#our-story">
-              About Us
-            </HashLink>
+          <div className="nav-item aboutus">
+            <div className="dropdown">
+              <p>
+                <Link className="color-secondary" to="/">
+                  About Us
+                </Link>
+              </p>
+              <div className="dropdown-content">
+                <div className="h-item">
+                  <p className="in-item">
+                    <HashLink to="/#our-impact">Our Impact</HashLink>
+                  </p>
+                </div>
+                <div className="h-item">
+                  <p className="in-item">
+                    <HashLink to="/#our-story">Our Story</HashLink>
+                  </p>
+                </div>
+                <div className="h-item">
+                  <p className="in-item">
+                    <HashLink to="/#our-team">Our Team</HashLink>
+                  </p>
+                </div>
+                <div className="h-item">
+                  <p className="in-item">
+                    <HashLink to="/#testimonials">Testimonials</HashLink>
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="nav-item">
             <Link className="color-secondary" to="/programs">
@@ -60,16 +85,48 @@ const Navbar = (props: Props) => {
       {menu && (
         <div className="mobile-menu no-desktop">
           <div className="nav-items-mobile">
-            <div
-              onClick={(e) => {
-                handleClick(e, handleMenu);
-              }}
-              className="m-nav-item"
-            >
-              <HashLink className="color-secondary" to="/#our-story">
-                About Us
-              </HashLink>
+            <div className="slider-in">
+              <div className="m-nav-item">
+                <Link
+                  onClick={(e) => {
+                    handleClick(e, handleMenu);
+                  }}
+                  className="color-secondary"
+                  to="/"
+                >
+                  About Us
+                </Link>{" "}
+                &nbsp;{" "}
+                <i
+                  onClick={() => {
+                    setShowMore(!showMore);
+                  }}
+                  className="fa fa-angle-down"
+                  aria-hidden="true"
+                ></i>
+              </div>
+              {showMore && (
+                <div className="show-more">
+                  <div>
+                    {" "}
+                    <HashLink to="/#our-impact">Our Impact</HashLink>
+                  </div>
+                  <div>
+                    {" "}
+                    <HashLink to="/#our-story">Our Story</HashLink>
+                  </div>
+                  <div>
+                    {" "}
+                    <HashLink to="/#our-team">Our Team</HashLink>
+                  </div>
+                  <div>
+                    {" "}
+                    <HashLink to="/#testimonials">Testimonials</HashLink>
+                  </div>
+                </div>
+              )}
             </div>
+
             <div
               onClick={(e) => {
                 handleClick(e, handleMenu);

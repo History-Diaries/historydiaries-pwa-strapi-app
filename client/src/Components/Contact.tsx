@@ -50,7 +50,7 @@ const Contact = (props: Props) => {
       if (response.status === 200) {
         setState({
           loading: false,
-          message: "Thanks for submitting your idea",
+          message: "Thanks for leaving the message",
         });
       }
     } catch (error) {
@@ -79,7 +79,75 @@ const Contact = (props: Props) => {
           </div>
         </div>
         <div className="center">
-          <p className="heading-3 mt-3"> Join Us</p>
+          <p className="heading-3 mt-3"> Leave a message</p>
+        </div>
+        <div className="idea">
+          <form className="form" onSubmit={handleSubmit(onSubmit)}>
+            <div className="form-item">
+              <label htmlFor="name">Name</label>
+              <br />
+              <input
+                type="text"
+                name="name"
+                ref={register({
+                  required: "Required",
+                })}
+              />
+              <p className="c-red"> {errors.name && errors.name.message}</p>
+            </div>
+            <div className="form-item">
+              <label htmlFor="email">Email Address</label>
+              <br />
+              <input
+                type="text"
+                name="email"
+                ref={register({
+                  required: "Required",
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                    message: "invalid email address",
+                  },
+                })}
+              />
+              <p className="c-red"> {errors.email && errors.email.message}</p>
+            </div>
+            <div className="form-item">
+              <label htmlFor="phone">Phone Number</label>
+              <br />
+              <input
+                type="text"
+                name="phone"
+                ref={register({
+                  required: "Required",
+                  pattern: {
+                    value: /^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$/i,
+                    message: "invalid phone number",
+                  },
+                })}
+              />
+              <p className="c-red"> {errors.phone && errors.phone.message}</p>
+            </div>
+            <div className="form-item">
+              <label htmlFor="phone">Write your message</label>
+              <br />
+              <textarea
+                name="idea"
+                ref={register({
+                  required: "Required",
+                })}
+              />
+              <p className="c-red"> {errors.idea && errors.idea.message}</p>
+            </div>
+            <div className="btn-cont">
+              <button className="n-btn c-btn m-btn submit-btn">Submit</button>
+            </div>
+          </form>
+          <div className="center">
+            {state.message ? <p>{state.message}</p> : null}
+          </div>
+        </div>
+        <div className="center">
+          <p className="heading-3 mt-3"> Contact Us</p>
         </div>
         <div className="center">
           <div className="contact">
@@ -89,74 +157,7 @@ const Contact = (props: Props) => {
           </div>
         </div>
       </div>
-      <div className="center">
-        <p className="heading-3 mt-3"> Share your idea!</p>
-      </div>
-      <div className="idea">
-        <form className="form" onSubmit={handleSubmit(onSubmit)}>
-          <div className="form-item">
-            <label htmlFor="name">Name</label>
-            <br />
-            <input
-              type="text"
-              name="name"
-              ref={register({
-                required: "Required",
-              })}
-            />
-            <p className="c-red"> {errors.name && errors.name.message}</p>
-          </div>
-          <div className="form-item">
-            <label htmlFor="email">Email Address</label>
-            <br />
-            <input
-              type="text"
-              name="email"
-              ref={register({
-                required: "Required",
-                pattern: {
-                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                  message: "invalid email address",
-                },
-              })}
-            />
-            <p className="c-red"> {errors.email && errors.email.message}</p>
-          </div>
-          <div className="form-item">
-            <label htmlFor="phone">Phone Number</label>
-            <br />
-            <input
-              type="text"
-              name="phone"
-              ref={register({
-                required: "Required",
-                pattern: {
-                  value: /^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$/i,
-                  message: "invalid phone number",
-                },
-              })}
-            />
-            <p className="c-red"> {errors.phone && errors.phone.message}</p>
-          </div>
-          <div className="form-item">
-            <label htmlFor="phone">Share your idea</label>
-            <br />
-            <textarea
-              name="idea"
-              ref={register({
-                required: "Required",
-              })}
-            />
-            <p className="c-red"> {errors.idea && errors.idea.message}</p>
-          </div>
-          <div className="btn-cont">
-            <button className="n-btn c-btn m-btn submit-btn">Submit</button>
-          </div>
-        </form>
-        <div className="center">
-          {state.message ? <p>{state.message}</p> : null}
-        </div>
-      </div>
+
       <Footer />
     </motion.div>
   );

@@ -75,12 +75,14 @@ const BlogArticle = ({ match }: RouteChildrenProps<TParams>) => {
           {" "}
           <div className="home">
             <div className="center">
-              <LazyLoadImage
-                alt={"blog"}
-                effect="blur"
-                className="banner mod no-shadow"
-                src={state.data.Banner.url} // use normal <img> attributes as props
-              />
+              <div className="banner-holder">
+                <LazyLoadImage
+                  alt={"blog"}
+                  effect="blur"
+                  className="banner-image mod"
+                  src={state.data.Banner.url} // use normal <img> attributes as props
+                />
+              </div>
             </div>
 
             <div className="blog-title">
@@ -105,10 +107,7 @@ const BlogArticle = ({ match }: RouteChildrenProps<TParams>) => {
               <i className="fa fa-calendar m-a" aria-hidden="true"></i> &nbsp;
               &nbsp;
               <p>
-                {format(
-                  new Date(state.data.createdAt),
-                  "do MMM yyyy HH:MM:aaaa"
-                )}
+                {format(new Date(state.data.createdAt), "do MMM yyyy HH:MM a")}
               </p>
             </div>
             <div className="blog-content-2">

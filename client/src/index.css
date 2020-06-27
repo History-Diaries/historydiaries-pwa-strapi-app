@@ -546,6 +546,7 @@ a {
 }
 .contact {
   text-align: center;
+  margin-bottom: 90px;
 }
 
 .join-icon {
@@ -563,7 +564,7 @@ a {
 }
 .idea {
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: 30px;
 }
 .form {
   width: 30%;
@@ -649,8 +650,7 @@ textarea {
 .blog-content-2 {
   color: #8d91a3;
   line-height: 1.5;
-
-  width: 42%;
+  width: 75%;
   margin: auto;
   margin-top: 80px;
 }
@@ -787,7 +787,15 @@ textarea {
 .c-red {
   color: rgb(216, 64, 64);
 }
+.reactMarkdown p {
+  display: flex;
+  justify-content: center;
+}
 
+.reactMarkdown > p {
+  line-height: 1.7 !important;
+  font-size: 0.95em !important;
+}
 .reactMarkdown > p,
 .reactMarkdown > h1,
 h2,
@@ -1134,8 +1142,66 @@ strong {
   background-color: #ffd582;
   cursor: pointer;
 }
+.banner-holder {
+}
+
+.banner-image {
+  height: 70vh;
+  border-radius: 30px;
+  display: flex;
+}
+.e-item {
+  text-align: center;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.h-item {
+  padding: 15px 0;
+}
+.h-item:hover {
+  background: #ffc856;
+  border-radius: 8px;
+}
+.h-item > p a:hover {
+}
+.in-item {
+  margin-left: 10px;
+}
+.slider-in {
+  display: flex;
+  flex-direction: column;
+}
+.down-icon {
+  display: flex;
+  align-items: center;
+}
+.show-more > div {
+  margin: 10px 10px;
+}
 
 @media (max-width: 800px) {
+  .card-dialouge {
+    flex-direction: column;
+  }
+  .reactMarkdown img {
+    max-width: 90%;
+  }
   .sub-cont {
     width: 98%;
   }
@@ -1243,7 +1309,7 @@ strong {
     width: 100%;
   }
   .idea {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
   }
   .form {
     width: 90%;
@@ -1447,6 +1513,22 @@ strong {
   }
   .heading-4 {
     font-size: 1.6em;
+  }
+  .e-banner {
+    width: 100%;
+    background-color: #271e41;
+    height: 100%;
+    border-radius: 30px;
+    box-shadow: 0 20px 44px 0 rgba(27, 36, 72, 0.26);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    transition: 0.5s;
+    height: 50vh !important;
+  }
+  .card-dialouge {
+    height: auto;
   }
 }
 .c-white {

@@ -9,6 +9,7 @@ import Twitter from "../Assets/Images/twitter.svg";
 import LinkedIn from "../Assets/Images/linkedin.svg";
 import { API } from "../config";
 import ReactGA from "react-ga";
+import Youtube from "../Assets/Images/youtube.svg";
 interface Props {}
 
 const Footer = (props: Props) => {
@@ -55,6 +56,13 @@ const Footer = (props: Props) => {
         message: "Error occured",
       });
     }
+
+    setTimeout(() => {
+      setState({
+        ...state,
+        message: "",
+      });
+    }, 1800);
   };
 
   return (
@@ -65,7 +73,7 @@ const Footer = (props: Props) => {
             <img className="footer-logo" src={Logo} alt="Logo-img" />
           </div>
           <div className="subscribe">
-            <p className="subs-text">Subscribe to our Newsletter!</p>
+            <p className="subs-text">Subscribe for regular Updates</p>
             <div className="sub-cont">
               <div className="btn-sub">
                 <input
@@ -88,7 +96,6 @@ const Footer = (props: Props) => {
               </div>
             </div>
             <p className="subs-text tn">
-              {" "}
               {errors.email && errors.email.message}
             </p>
             {state.message && <p className="subs-text tn">{state.message}</p>}
@@ -118,6 +125,9 @@ const Footer = (props: Props) => {
                   src={LinkedIn}
                   alt="linkedin-icon"
                 />
+              </a>
+              <a href="https://www.facebook.com/HistoryDiaries">
+                <img className="social-icon" src={Youtube} alt="youtube-icon" />
               </a>
             </div>{" "}
           </div>
