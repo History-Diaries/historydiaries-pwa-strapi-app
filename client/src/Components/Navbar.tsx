@@ -26,45 +26,98 @@ const Navbar = (props: Props) => {
           <div className="nav-item aboutus">
             <div className="dropdown">
               <p>
-                <Link className="color-secondary" to="/">
+                <Link
+                  onClick={() => {
+                    sessionStorage.removeItem("prevSessionHD");
+                  }}
+                  className="color-secondary"
+                  to="/"
+                >
                   About Us
                 </Link>
               </p>
               <div className="dropdown-content">
                 <div className="h-item">
                   <p className="in-item">
-                    <HashLink to="/#our-impact">Our Impact</HashLink>
+                    <HashLink
+                      onClick={() => {
+                        sessionStorage.removeItem("prevSessionHD");
+                      }}
+                      to="/#our-impact"
+                    >
+                      Our Impact
+                    </HashLink>
                   </p>
                 </div>
                 <div className="h-item">
                   <p className="in-item">
-                    <HashLink to="/#our-story">Our Story</HashLink>
+                    <HashLink
+                      onClick={() => {
+                        sessionStorage.removeItem("prevSessionHD");
+                      }}
+                      to="/#our-story"
+                    >
+                      Our Story
+                    </HashLink>
                   </p>
                 </div>
                 <div className="h-item">
                   <p className="in-item">
-                    <HashLink to="/#our-team">Our Team</HashLink>
+                    <HashLink
+                      onClick={() => {
+                        sessionStorage.removeItem("prevSessionHD");
+                      }}
+                      to="/#our-team"
+                    >
+                      Our Team
+                    </HashLink>
                   </p>
                 </div>
                 <div className="h-item">
                   <p className="in-item">
-                    <HashLink to="/#testimonials">Testimonials</HashLink>
+                    <HashLink
+                      onClick={() => {
+                        sessionStorage.removeItem("prevSessionHD");
+                      }}
+                      to="/#testimonials"
+                    >
+                      Testimonials
+                    </HashLink>
                   </p>
                 </div>
               </div>
             </div>
           </div>
           <div className="nav-item">
-            <Link className="color-secondary" to="/programs">
+            <Link
+              onClick={() => {
+                sessionStorage.removeItem("prevSessionHD");
+              }}
+              className="color-secondary"
+              to="/programs"
+            >
               Programs
             </Link>
           </div>
           <div className="nav-item">
-            <Link to="/reach">Reach Us</Link>
+            <Link
+              onClick={() => {
+                sessionStorage.removeItem("prevSessionHD");
+              }}
+              to="/reach"
+            >
+              Reach Us
+            </Link>
           </div>
           <div className="nav-item">
             <span>
-              <Link className="n-btn" to="/blog">
+              <Link
+                onClick={() => {
+                  sessionStorage.removeItem("prevSessionHD");
+                }}
+                className="n-btn"
+                to="/blog"
+              >
                 Blog
               </Link>
             </span>
@@ -90,6 +143,7 @@ const Navbar = (props: Props) => {
                 <Link
                   onClick={(e) => {
                     handleClick(e, handleMenu);
+                    sessionStorage.removeItem("prevSessionHD");
                   }}
                   className="color-secondary"
                   to="/"
@@ -100,6 +154,7 @@ const Navbar = (props: Props) => {
                 <i
                   onClick={() => {
                     setShowMore(!showMore);
+                    sessionStorage.removeItem("prevSessionHD");
                   }}
                   className="fa fa-angle-down"
                   aria-hidden="true"
@@ -109,19 +164,47 @@ const Navbar = (props: Props) => {
                 <div className="show-more">
                   <div>
                     {" "}
-                    <HashLink to="/#our-impact">Our Impact</HashLink>
+                    <HashLink
+                      onClick={() => {
+                        sessionStorage.removeItem("prevSessionHD");
+                      }}
+                      to="/#our-impact"
+                    >
+                      Our Impact
+                    </HashLink>
                   </div>
                   <div>
                     {" "}
-                    <HashLink to="/#our-story">Our Story</HashLink>
+                    <HashLink
+                      onClick={() => {
+                        sessionStorage.removeItem("prevSessionHD");
+                      }}
+                      to="/#our-story"
+                    >
+                      Our Story
+                    </HashLink>
                   </div>
                   <div>
                     {" "}
-                    <HashLink to="/#our-team">Our Team</HashLink>
+                    <HashLink
+                      onClick={() => {
+                        sessionStorage.removeItem("prevSessionHD");
+                      }}
+                      to="/#our-team"
+                    >
+                      Our Team
+                    </HashLink>
                   </div>
                   <div>
                     {" "}
-                    <HashLink to="/#testimonials">Testimonials</HashLink>
+                    <HashLink
+                      onClick={() => {
+                        sessionStorage.removeItem("prevSessionHD");
+                      }}
+                      to="/#testimonials"
+                    >
+                      Testimonials
+                    </HashLink>
                   </div>
                 </div>
               )}
@@ -130,6 +213,7 @@ const Navbar = (props: Props) => {
             <div
               onClick={(e) => {
                 handleClick(e, handleMenu);
+                sessionStorage.removeItem("prevSessionHD");
               }}
               className="m-nav-item"
             >
@@ -138,6 +222,7 @@ const Navbar = (props: Props) => {
             <div
               onClick={(e) => {
                 handleClick(e, handleMenu);
+                sessionStorage.removeItem("prevSessionHD");
               }}
               className="m-nav-item"
             >
@@ -146,6 +231,7 @@ const Navbar = (props: Props) => {
             <div
               onClick={(e) => {
                 handleClick(e, handleMenu);
+                sessionStorage.removeItem("prevSessionHD");
               }}
               className="m-nav-item m-btn"
             >
