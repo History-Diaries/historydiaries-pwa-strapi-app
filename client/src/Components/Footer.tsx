@@ -109,24 +109,24 @@ const Footer = (props: Props) => {
                   alt="facebook-icon"
                 />
               </a>
-              <a href="https://www.facebook.com/HistoryDiaries">
+              <a href="https://www.instagram.com/historydiaries_/">
                 <img
                   className="social-icon"
                   src={Instagram}
                   alt="instagram-icon"
                 />
               </a>
-              <a href="https://www.facebook.com/HistoryDiaries">
+              <a href="https://twitter.com/HistoryDiaries">
                 <img className="social-icon" src={Twitter} alt="twitter-icon" />
               </a>
-              <a href="https://www.facebook.com/HistoryDiaries">
+              <a href=" https://www.linkedin.com/company/historydiaries/">
                 <img
                   className="social-icon"
                   src={LinkedIn}
                   alt="linkedin-icon"
                 />
               </a>
-              <a href="https://www.facebook.com/HistoryDiaries">
+              <a href=" https://www.youtube.com/channel/UCX2ohO31f1kYNINWT0EYYgw">
                 <img className="social-icon" src={Youtube} alt="youtube-icon" />
               </a>
             </div>{" "}
