@@ -726,7 +726,7 @@ textarea {
   width: 30% !important;
   height: auto;
   margin: auto;
-  padding: 10px !important;
+  padding: 50px !important;
   border: none !important;
   border-radius: 30px !important;
 }
@@ -1327,6 +1327,7 @@ strong {
     width: 90% !important;
     height: 500px !important;
     left: 50% !important;
+    padding: 10px !important;
   }
   .modal-cont {
     padding: 15px;
