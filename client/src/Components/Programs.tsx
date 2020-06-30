@@ -323,9 +323,66 @@ const PastPrograms = (props: Props) => {
             ))}
           </div>
           <div className="e-banner">
-            <div className="cont-holder">
-              <h1 className="white">Programs</h1>
-            </div>
+            {state.loading ? (
+              <div className="cont-holder">
+                <h1 className="white">Programs</h1>
+              </div>
+            ) : state.current == "Workshops" ? (
+              <div className="cont-holder">
+                <h1 className="white">Workshops</h1>
+                <div className="w-2">
+                  <p className="t-3">
+                    <i>
+                      It is never too late to learn a new skill. Join our
+                      workshops covering a diverse array of topics like theatre,
+                      fine arts, storytelling, and a lot more to enhance your
+                      skillset.
+                    </i>
+                  </p>
+                </div>
+              </div>
+            ) : state.current == "Contests" ? (
+              <div className="cont-holder">
+                <h1 className="white">Contests</h1>
+                <div className="w-2">
+                  <p className="t-3">
+                    <i>
+                      A chance for you to play with your knowledge and skill.
+                      Participate in a variety of contests to bring the best in
+                      you.
+                    </i>
+                  </p>
+                </div>
+              </div>
+            ) : state.current == "Courses" ? (
+              <div className="cont-holder">
+                <h1 className="white">Courses</h1>
+                <div className="w-2">
+                  <p className="t-3">
+                    <i>
+                      We bring to you new courses to learn skills like Creative
+                      Thinking and Complex Problem Solving or develop mindsets
+                      of curiosity, open-mindedness. All the courses are
+                      designed by our in-house team of experts and have been
+                      recommended by educators from leading schools.
+                    </i>
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <div className="cont-holder">
+                <h1 className="white">Theaters</h1>
+                <div className="w-2">
+                  <p className="t-3">
+                    <i>
+                      History curriculum-based theater shows for school
+                      students. Embark with us on an experiential journey
+                      through the events, people, and developments of the past.
+                    </i>
+                  </p>
+                </div>
+              </div>
+            )}
           </div>
         </div>
         {state.loading ? null : (

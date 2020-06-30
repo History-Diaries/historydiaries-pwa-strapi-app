@@ -33,43 +33,6 @@ const Contact = (props: Props) => {
     },
   });
 
-  React.useEffect(() => {
-    ReactGA.pageview(`/reach`);
-    window.scrollTo(0, 0);
-    let isCancelled = false;
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`${API}/contact`);
-
-        ReactGA.event({
-          category: "Reach",
-          action: `User visited reach page`,
-        });
-        if (!isCancelled) {
-          setState({
-            ...state,
-            data: response.data,
-            fLoading: false,
-          });
-        }
-      } catch (error) {
-        if (!isCancelled) {
-          setState({
-            ...state,
-            notFound: true,
-            fLoading: false,
-          });
-        }
-      }
-    };
-
-    fetchData();
-
-    return () => {
-      isCancelled = true;
-    };
-  }, []);
-
   const onSubmit = async (values: any) => {
     ReactGA.event({
       category: "Idea",
@@ -200,20 +163,15 @@ const Contact = (props: Props) => {
           <p className="heading-3 mt-3"> Contact Us</p>
         </div>
         <div className="center">
-          {state.fLoading ? (
-            <p>Loading..</p>
-          ) : state.data ? (
-            <div className="contact">
-              <img className="join-icon" src={Join} alt="join-icon" />
-              {state.data.Phone && <p>E-mail: {state.data.Phone}</p>}
-              {state.data.Email && <p>Phone: {state.data.Email}</p>}
-              {state.data.Address && (
-                <div className="address center">
-                  <div>{state.data.Address}</div>
-                </div>
-              )}
-            </div>
-          ) : null}
+          <div className="contact">
+            <img className="join-icon" src={Join} alt="join-icon" />
+            <p>E-mail: historydiaries2016@gmail.com </p>
+            <p>Phone: +91 95600 54260</p>
+
+            {/* <div className="address center">
+                <div> Address here..</div>
+              </div> */}
+          </div>
         </div>
       </div>
 

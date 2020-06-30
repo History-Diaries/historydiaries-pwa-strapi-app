@@ -116,7 +116,18 @@ const Blog = (props: Props) => {
           <div className="banner-cont">
             <p className="banner-text t2">{"History Diaries Blog"}</p>
             <div className="w-2">
-              <p className="t-3"></p>
+              <p className="t-3">
+                <i>
+                  “The more that you read, the more things you will know. The
+                  more that you learn, the more places you’ll go.” – Dr. Seuss
+                </i>
+              </p>
+            </div>
+            <div className="w-2">
+              <p className="t-3">
+                Explore this space to read about things from History, Culture,
+                Art, and Education.
+              </p>
             </div>
           </div>
         </div>

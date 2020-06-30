@@ -159,7 +159,7 @@ const ProgramDetails = ({ match, history }: RouteComponentProps<TParams>) => {
                     ) : program == "courses" ? (
                       <p className="t-def">Start Date</p>
                     ) : (
-                      <p className="t-def">Date</p>
+                      <p className="t-def">Deadline</p>
                     )}
                     <p className="c-grey-m">
                       {format(new Date(state.data.Date), "do MMM yyyy")}

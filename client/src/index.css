@@ -1569,6 +1569,9 @@ strong {
   .card-dialouge {
     height: auto;
   }
+  .w-2 {
+    width: 100%;
+  }
 }
 .c-white {
   color: white !important;
