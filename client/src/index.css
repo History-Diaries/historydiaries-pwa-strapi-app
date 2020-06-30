@@ -370,7 +370,7 @@ html {
 }
 q:before {
   content: open-quote;
-  font-size: 3em;
+  font-size: 1.2em;
   color: #ffc856;
 }
 
@@ -464,13 +464,14 @@ a {
 .cont-holder {
   width: 70%;
   color: #8d91a3;
-  opacity: 0.5;
+
   text-align: center;
   margin: auto;
 }
 .mt-3 {
   margin-top: 80px;
 }
+
 .heading-3 {
   font-size: 2em;
   letter-spacing: -0.3;
@@ -1227,7 +1228,6 @@ strong {
 }
 .ReactModal__Content--after-open {
   height: 580px !important;
-  overflow: hidden !important;
 }
 .master {
   background-image: url("./Assets/Images/banner2.png");

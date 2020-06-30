@@ -40,6 +40,7 @@ const Home = (props: Props) => {
   const handleScrollerClick = () => {
     window.scrollTo(500, 850);
   };
+  const [showMore, setShowMore] = React.useState(false);
   React.useEffect(() => {
     new Rellax(".rellax");
   }, []);
@@ -116,7 +117,7 @@ const Home = (props: Props) => {
           {/* Content section */}
 
           <div className="section-main">
-            <div className="section s-1">
+            {/* <div className="section s-1">
               <div className="subsection s-1">
                 <img className="vision-icon" src={Vision} alt="Vision-Icon" />
               </div>
@@ -131,8 +132,8 @@ const Home = (props: Props) => {
                   </p>
                 </div>
               </div>
-            </div>
-            <div className="section s-1 mt-4">
+            </div> */}
+            {/* <div className="section s-1 mt-4">
               <div className="subsection s-3">
                 <img className="mission-icon" src={Mission} alt="Vision-Icon" />
               </div>
@@ -147,7 +148,7 @@ const Home = (props: Props) => {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div id="our-story">
@@ -175,36 +176,50 @@ const Home = (props: Props) => {
                 around it. Since our foundation, we have staged 6 plays for
                 schools in Delhi-NCR.
                 <br />
-                <br />
-                But making history interesting out of the classroom wasn’t
-                enough. We wanted to take this impact to the classrooms so that
-                it could be sustained. And we started using Drama-In-History
-                -Education to build classroom sessions. This helped us catching
-                student attention in the classroom and make this subject
-                Engaging for students. Not just the in-class sessions but,
-                engaging with the primary evidence of past which are
-                well-preserved in the museums, helped them engage with their
-                subject better.
-                <br />
-                <br />
-                Still making history Interesting and{" "}
-                <strong className="strong">Engaging</strong>&nbsp;wasn’t enough
-                as there was this question of “Why study history ?” in minds of
-                students. They used to ask us about the relevance of studying
-                history which raised a lot of unanswered questions in our minds.
-                We started our research to connect all these dots and worked
-                around the “Thinking” that the study of history develops that
-                doesn’t only define what’s significant to look into the past but
-                also, ‘How’ to look at it. It talks about Evidence Vs
-                Interpretations, Contextualisation, Multiple Perspectives,
-                Changes and Continuities, and forming Judgements. The thinking
-                skills, which are highly relevant to resolve the matters of the
-                present society. Hence, we started working with school students
-                and teachers, developing these skills through research-based
-                history projects. And it helped us achieving the third paradigm
-                of making history <strong className="strong">Relevant</strong>{" "}
-                in schools.
               </p>
+              {showMore && (
+                <p className="c-grey mt-2 fs2">
+                  But making history interesting out of the classroom wasn’t
+                  enough. We wanted to take this impact to the classrooms so
+                  that it could be sustained. And we started using
+                  Drama-In-History -Education to build classroom sessions. This
+                  helped us catching student attention in the classroom and make
+                  this subject Engaging for students. Not just the in-class
+                  sessions but, engaging with the primary evidence of past which
+                  are well-preserved in the museums, helped them engage with
+                  their subject better.
+                  <br />
+                  <br />
+                  Still making history Interesting and{" "}
+                  <strong className="strong">Engaging</strong>&nbsp;wasn’t
+                  enough as there was this question of “Why study history ?” in
+                  minds of students. They used to ask us about the relevance of
+                  studying history which raised a lot of unanswered questions in
+                  our minds. We started our research to connect all these dots
+                  and worked around the “Thinking” that the study of history
+                  develops that doesn’t only define what’s significant to look
+                  into the past but also, ‘How’ to look at it. It talks about
+                  Evidence Vs Interpretations, Contextualisation, Multiple
+                  Perspectives, Changes and Continuities, and forming
+                  Judgements. The thinking skills, which are highly relevant to
+                  resolve the matters of the present society. Hence, we started
+                  working with school students and teachers, developing these
+                  skills through research-based history projects. And it helped
+                  us achieving the third paradigm of making history{" "}
+                  <strong className="strong">Relevant</strong> in schools.
+                </p>
+              )}
+              <div className="center">
+                <div
+                  className="view-more-btn"
+                  onClick={() => {
+                    const change = !showMore;
+                    setShowMore(change);
+                  }}
+                >
+                  {!showMore ? "Show more" : "Show less"}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -287,8 +302,7 @@ const Home = (props: Props) => {
                   </div>
                 </div>
                 <p className="heading-4">
-                  {showModal.state && showModal.state.name}-
-                  {showModal.state && showModal.state.des}
+                  {showModal.state && showModal.state.name}
                 </p>
                 <p className="c-grey">
                   {showModal.state && showModal.state.desc}

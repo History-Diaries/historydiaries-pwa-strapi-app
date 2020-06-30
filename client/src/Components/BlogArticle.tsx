@@ -107,7 +107,7 @@ const BlogArticle = ({ match }: RouteChildrenProps<TParams>) => {
               <i className="fa fa-calendar m-a" aria-hidden="true"></i> &nbsp;
               &nbsp;
               <p>
-                {format(new Date(state.data.createdAt), "do MMM yyyy HH:MM a")}
+                {format(new Date(state.data.createdAt), "do MMM yyyy HH:MM")}
               </p>
             </div>
             <div className="blog-content-2">

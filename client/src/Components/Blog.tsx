@@ -163,7 +163,7 @@ const Blog = (props: Props) => {
                           {format(new Date(e.createdAt), "do MMM yyyy")}
                         </div>
                         &nbsp;&nbsp;
-                        <div>{format(new Date(e.createdAt), "HH:MM a")}</div>
+                        <div>{format(new Date(e.createdAt), "HH:MM")}</div>
                       </div>
                     </div>
                   </div>

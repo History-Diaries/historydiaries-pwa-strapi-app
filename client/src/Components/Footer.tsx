@@ -73,13 +73,14 @@ const Footer = (props: Props) => {
             <img className="footer-logo" src={Logo} alt="Logo-img" />
           </div>
           <div className="subscribe">
-            <p className="subs-text">Subscribe to Program Updates</p>
+            <p className="subs-text">Subscribe to receive Program Updates</p>
             <div className="sub-cont">
               <div className="btn-sub">
                 <input
                   className="sub-in"
                   type="text"
                   name="email"
+                  placeholder="Email"
                   ref={register({
                     required: "Required",
                     pattern: {
