@@ -1227,6 +1227,7 @@ strong {
   height: 580px !important;
   overflow: hidden !important;
 }
+
 @media (max-width: 800px) {
   .card--content {
     min-width: 350px;
