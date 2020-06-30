@@ -351,7 +351,7 @@ html {
   display: none;
 }
 .t-section {
-  width: 80%;
+  width: 90%;
   margin: auto;
   margin-top: 100px;
 }
@@ -1228,6 +1228,9 @@ strong {
   overflow: hidden !important;
 }
 @media (max-width: 800px) {
+  .card--content {
+    min-width: 350px;
+  }
   .ReactModal__Content--after-open {
     overflow: scroll !important;
   }
@@ -1402,9 +1405,7 @@ strong {
   .t-text {
     font-size: 16px;
   }
-  .card--content {
-    min-width: 200px;
-  }
+
   .card-content {
     padding: 20px;
   }

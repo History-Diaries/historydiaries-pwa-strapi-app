@@ -66,6 +66,7 @@ const Home = (props: Props) => {
       desc: `Mohit is a seeker who is passionate about working on and for the roots, which he believes lie in History. His journey in education space and community development started from his early college days. Having an experience of 4+ years in Instructional Design, he is an avid reader who is always looking for ways to create engaging and relevant stuff for students. Mohit is a Computer Science graduate from IIT Delhi, who wishes to use his engineering skills to integrate Tech and History.`,
     },
   ];
+
   return (
     <>
       <motion.div
