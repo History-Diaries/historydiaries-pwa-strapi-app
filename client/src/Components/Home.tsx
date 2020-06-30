@@ -11,34 +11,59 @@ import Testimonial from "./Testimonial";
 import Scroll from "../Assets/Images/heart.svg";
 import Partners from "./Partners";
 import MediaMentions from "./MediaMentions";
-
+import p1 from "../Assets/Images/team/Ankit.jpg";
+import p2 from "../Assets/Images/team/Mohit.jpg";
+import p3 from "../Assets/Images/team/Swati.png";
 interface Props {}
+interface Person {
+  name: string;
+  image: string;
+  des: string;
+  desc: string;
+}
 
+interface Istate {
+  show: boolean;
+  state: Person;
+}
 const Home = (props: Props) => {
   ReactGA.event({
     category: "USER",
     action: "AT HOME",
   });
+
   ReactGA.pageview("/homepage");
-  const [showModal, setModal] = React.useState(false);
+  const [showModal, setModal] = React.useState<Istate | any>({
+    state: null,
+    show: false,
+  });
   const handleScrollerClick = () => {
     window.scrollTo(500, 850);
   };
   React.useEffect(() => {
-    var rellax = new Rellax(".rellax");
+    new Rellax(".rellax");
   }, []);
   const team = [
     {
-      name: "person",
-      image: "https://via.placeholder.com/150",
+      name: "Swati Mittal",
+      image: p3,
+      des: "Co-Founder, Creative Head",
+      desc: `With over 5+ years of experience of working with students on life skills, Swati co-founded and has been working with  History Diaries for her love for Education and Art. She is also a Bharatnatyam dancer, trained under Guru Smt. Sindhu Mishra and has been performing at national and international platforms. She is an Engineer and worked in the IT Sector for a few years until she could find her passion and follow it at History Diaries. She was associated with Govt. Of India for the cultural programs 
+      being organized for honorable President and Honourable Prime Minister of India.
+      She is also a mentor with Niti Aayog for Atal Tinkering Labs.
+      `,
     },
     {
-      name: "person",
-      image: "https://via.placeholder.com/150",
+      name: "Ankit Narayan",
+      image: p1,
+      des: "Co-Founder, Strategy",
+      desc: `Watching a theater show on the life of Kabir by Shekhar Sen followed by a conversation with a friend made Ankit realize the significance of History and how it needs to be made more engaging for school students. He then joined hands with Swati to start History Diaries. He brings the experience of working with schools and strategic inputs to the HD team. Along with his contribution at HD, Ankit Co-Founded a Career Guidance start-up for school students.  Ankit is an IIT-Delhi and  Super - 30 Alumnus who loves Hindi literature, Theater, and Hindustani Classical Music.`,
     },
     {
-      name: "person",
-      image: "https://via.placeholder.com/150",
+      name: "Mohit Choudhary",
+      image: p2,
+      des: "Product Head",
+      desc: `Mohit is a seeker who is passionate about working on and for the roots, which he believes lie in History. His journey in education space and community development started from his early college days. Having an experience of 4+ years in Instructional Design, he is an avid reader who is always looking for ways to create engaging and relevant stuff for students. Mohit is a Computer Science graduate from IIT Delhi, who wishes to use his engineering skills to integrate Tech and History.`,
     },
   ];
   return (
@@ -219,45 +244,54 @@ const Home = (props: Props) => {
           <div className="team-profile">
             {team.map((p, index) => (
               <div key={index} className="team-mate">
-                <div className="team-image">
+                <div>
                   <img
                     onClick={() => {
-                      setModal(true);
+                      setModal({
+                        ...showModal,
+                        show: true,
+                        state: p,
+                      });
                     }}
                     className="team-image"
-                    src="https://via.placeholder.com/150"
-                    alt="person"
+                    src={p.image}
+                    alt={p.name}
                   />
                 </div>
                 <div>
-                  <p className="mt-1">Person {index + 1}</p>
+                  <p className="mt-1 name">{p.name}</p>
+                  <p className="mt-1">{p.des}</p>
                 </div>
-
-                <Modal
-                  ariaHideApp={false}
-                  isOpen={showModal}
-                  contentLabel="Modal"
-                >
-                  <div className="modal-cont">
-                    <div className="right-push">
-                      <div
-                        className="c-btn trim cross"
-                        onClick={() => setModal(false)}
-                      >
-                        ×
-                      </div>
-                    </div>
-                    <p className="heading-4">
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    </p>
-                    <p className="c-grey">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Ab corrupti, perferendis dolorum obcaecati, ipsam autem
-                    </p>
-                  </div>
-                </Modal>
               </div>
             ))}
+            <Modal
+              ariaHideApp={false}
+              isOpen={showModal.show}
+              contentLabel="Modal"
+            >
+              <div className="modal-cont">
+                <div className="right-push">
+                  <div
+                    className="c-btn trim cross"
+                    onClick={() =>
+                      setModal({
+                        ...showModal,
+                        show: !showModal.show,
+                      })
+                    }
+                  >
+                    ×
+                  </div>
+                </div>
+                <p className="heading-4">
+                  {showModal.state && showModal.state.name}-
+                  {showModal.state && showModal.state.des}
+                </p>
+                <p className="c-grey">
+                  {showModal.state && showModal.state.desc}
+                </p>
+              </div>
+            </Modal>
           </div>
         </div>
 

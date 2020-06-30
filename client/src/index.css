@@ -260,12 +260,19 @@ html {
   color: #fff;
   margin-top: 30px;
   width: 25%;
-  text-align: center;
+  text-align: center !important;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 .team-image {
   border-radius: 100%;
+  width: 130px;
+  height: 130px;
 }
-
+.name {
+  font-family: var(--fb);
+}
 .data-section {
   width: 70%;
   margin: auto;
@@ -717,7 +724,7 @@ textarea {
   width: 30% !important;
   height: auto;
   margin: auto;
-  padding: 30px !important;
+  padding: 10px !important;
   border: none !important;
   border-radius: 30px !important;
 }
@@ -1216,8 +1223,14 @@ strong {
 .strong {
   color: #ffc856 !important;
 }
-
+.ReactModal__Content--after-open {
+  height: 580px !important;
+  overflow: hidden !important;
+}
 @media (max-width: 800px) {
+  .ReactModal__Content--after-open {
+    overflow: scroll !important;
+  }
   .cen {
     text-align: center;
   }
@@ -1286,7 +1299,6 @@ strong {
     top: 80% !important;
     width: 90% !important;
     height: 500px !important;
-    padding: 20px;
     left: 50% !important;
   }
   .modal-cont {
