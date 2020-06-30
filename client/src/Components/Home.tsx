@@ -76,13 +76,15 @@ const Home = (props: Props) => {
       >
         <div className="rellax no-mobile circle" data-rellax-speed="7"></div>
         <div className="home">
-          <div className="banner">
+          <div className="banner master">
             <div className="banner-cont">
-              <p className="banner-text">
-                "History Diaries" is an initiative to revamp the current
-                pedagogical system of history through theatre, classroom
-                investigative sessions, tours, drama.
-              </p>
+              <div className="stroke">
+                <p className="banner-text">
+                  "History Diaries" is an initiative to revamp the current
+                  pedagogical system of history through theatre, classroom
+                  investigative sessions, tours, drama.
+                </p>
+              </div>
               <div className="center">
                 <div className="c-btn">
                   <Link

@@ -1227,8 +1227,21 @@ strong {
   height: 580px !important;
   overflow: hidden !important;
 }
+.master {
+  background-image: url("./Assets/Images/banner2.png");
+  opacity: 2;
+}
+.stroke {
+  padding: 40px;
+  background: #271e41;
+  border-radius: 30px;
+}
 
 @media (max-width: 800px) {
+  .stroke {
+    background: none;
+    padding: 0;
+  }
   .card--content {
     min-width: 350px;
   }
