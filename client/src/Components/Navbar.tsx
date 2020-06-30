@@ -67,9 +67,9 @@ const Navbar = (props: Props) => {
                       onClick={() => {
                         sessionStorage.removeItem("prevSessionHD");
                       }}
-                      to="/#our-team"
+                      to="/#core-team"
                     >
-                      Our Team
+                      Core Team
                     </HashLink>
                   </p>
                 </div>
@@ -190,9 +190,9 @@ const Navbar = (props: Props) => {
                       onClick={() => {
                         sessionStorage.removeItem("prevSessionHD");
                       }}
-                      to="/#our-team"
+                      to="/#core-team"
                     >
-                      Our Team
+                      Core Team
                     </HashLink>
                   </div>
                   <div>

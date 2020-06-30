@@ -253,6 +253,8 @@ html {
   width: 80%;
   margin: auto;
   margin-top: 20px;
+  justify-content: center;
+  margin-top: 50px;
 }
 .team-mate {
   color: #fff;
@@ -1211,7 +1213,14 @@ strong {
 .c-grey-m {
   font-size: 0.9em;
 }
+.strong {
+  color: #ffc856 !important;
+}
+
 @media (max-width: 800px) {
+  .cen {
+    text-align: center;
+  }
   .card-dialouge {
     flex-direction: column;
   }

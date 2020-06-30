@@ -40,26 +40,6 @@ const Home = (props: Props) => {
       name: "person",
       image: "https://via.placeholder.com/150",
     },
-    {
-      name: "person",
-      image: "https://via.placeholder.com/150",
-    },
-    {
-      name: "person",
-      image: "https://via.placeholder.com/150",
-    },
-    {
-      name: "person",
-      image: "https://via.placeholder.com/150",
-    },
-    {
-      name: "person",
-      image: "https://via.placeholder.com/150",
-    },
-    {
-      name: "person",
-      image: "https://via.placeholder.com/150",
-    },
   ];
   return (
     <>
@@ -106,37 +86,7 @@ const Home = (props: Props) => {
           </div>
 
           {/* Content section */}
-          <div id="our-impact" className="data-section">
-            <div className="center">
-              <p className="heading ft-size-2 noborder">Our Impact</p>
-            </div>
-            <div className="data-row">
-              <div className="data-cont">
-                <div className="data">200+</div>
-                <div>
-                  <p className="sub-data">Students</p>
-                </div>
-              </div>
-              <div className="data-cont">
-                <div className="data">14+</div>
-                <div>
-                  <p className="sub-data">Events</p>
-                </div>
-              </div>
-              <div className="data-cont">
-                <div className="data">50+</div>
-                <div>
-                  <p className="sub-data">Schools</p>
-                </div>
-              </div>
-              <div className="data-cont">
-                <div className="data">100+</div>
-                <div>
-                  <p className="sub-data">Teachers</p>
-                </div>
-              </div>
-            </div>
-          </div>
+
           <div className="section-main">
             <div className="section s-1">
               <div className="subsection s-1">
@@ -146,17 +96,10 @@ const Home = (props: Props) => {
                 <p className="heading">Vision.</p>
                 <div className="content">
                   <p className="text-1">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Odio, optio. Sint omnis nihil dolor vero nobis, minus
-                    nostrum consequatur iusto neque odit modi voluptatum magni
-                    cupiditate, repellendus libero, ut adipisci? Lorem ipsum
-                    dolor sit amet consectetur adipisicing elit. Quos nam
-                    aliquam, ex, error perspiciatis ipsum eligendi laborum quia
-                    debitis consequatur facilis impedit dignissimos fugit
-                    voluptatibus minima soluta iusto rerum numquam sapiente
-                    laudantium nihil ut! Accusantium ad amet, dolor porro vero
-                    ipsa quasi, quis alias quas nobis delectus similique. Harum,
-                    aspernatur?
+                    <p className="heading-4 cen">
+                      “Building compassionate generations by connecting self to
+                      history”
+                    </p>
                   </p>
                 </div>
               </div>
@@ -169,17 +112,10 @@ const Home = (props: Props) => {
                 <div className="content">
                   <p className="heading">Mission.</p>
                   <p className="text-1">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Odio, optio. Sint omnis nihil dolor vero nobis, minus
-                    nostrum consequatur iusto neque odit modi voluptatum magni
-                    cupiditate, repellendus libero, ut adipisci? Lorem ipsum
-                    dolor sit amet consectetur adipisicing elit. Quos nam
-                    aliquam, ex, error perspiciatis ipsum eligendi laborum quia
-                    debitis consequatur facilis impedit dignissimos fugit
-                    voluptatibus minima soluta iusto rerum numquam sapiente
-                    laudantium nihil ut! Accusantium ad amet, dolor porro vero
-                    ipsa quasi, quis alias quas nobis delectus similique. Harum,
-                    aspernatur?
+                    <p className="heading-4 cen">
+                      {" "}
+                      “Making history Interesting, Engaging and Relevant”
+                    </p>
                   </p>
                 </div>
               </div>
@@ -196,22 +132,89 @@ const Home = (props: Props) => {
             </div>
             <div className="story-content">
               <p className="c-grey mt-2">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Veritatis saepe illum sunt voluptatem, maiores dicta laboriosam
-                dolorem repudiandae voluptatum ullam, nulla pariatur. Provident
-                animi atque reiciendis sit illum qui velit. Lorem ipsum dolor
-                sit amet consectetur, adipisicing elit. Exercitationem, tempora
-                vel qui architecto omnis suscipit dolorem perspiciatis dolorum
-                facilis tenetur consectetur assumenda corrupti ducimus tempore.
-                Accusantium sequi necessitatibus minima eos.
+                Our journey started after having a small discussion with an 8th
+                grader who said, History is one subject that he hates but on the
+                contrary he likes watching history-based movies, listening to
+                stories of the past, exploring monuments and getting exposed to
+                cultural content. We could relate to him as we had felt the same
+                when we were in school. We felt the disconnect between what a
+                child reads in books and what the child experiences. To bridge
+                this gap and make History{" "}
+                <strong className="strong">Interesting</strong> and{" "}
+                <strong className="strong">Experiential</strong> for students we
+                came up with a history-curriculum based Theatre where we pick a
+                theme from their history curriculum and make a theatre play
+                around it. Since our foundation, we have staged 6 plays for
+                schools in Delhi-NCR.
+                <br />
+                <br />
+                But making history interesting out of the classroom wasn’t
+                enough. We wanted to take this impact to the classrooms so that
+                it could be sustained. And we started using Drama-In-History
+                -Education to build classroom sessions. This helped us catching
+                student attention in the classroom and make this subject
+                Engaging for students. Not just the in-class sessions but,
+                engaging with the primary evidence of past which are
+                well-preserved in the museums, helped them engage with their
+                subject better.
+                <br />
+                <br />
+                Still making history Interesting and{" "}
+                <strong className="strong">Engaging</strong>&nbsp;wasn’t enough
+                as there was this question of “Why study history ?” in minds of
+                students. They used to ask us about the relevance of studying
+                history which raised a lot of unanswered questions in our minds.
+                We started our research to connect all these dots and worked
+                around the “Thinking” that the study of history develops that
+                doesn’t only define what’s significant to look into the past but
+                also, ‘How’ to look at it. It talks about Evidence Vs
+                Interpretations, Contextualisation, Multiple Perspectives,
+                Changes and Continuities, and forming Judgements. The thinking
+                skills, which are highly relevant to resolve the matters of the
+                present society. Hence, we started working with school students
+                and teachers, developing these skills through research-based
+                history projects. And it helped us achieving the third paradigm
+                of making history <strong className="strong">Relevant</strong>{" "}
+                in schools.
               </p>
             </div>
           </div>
         </div>
-
-        <div id="our-team" className="team-section">
+        <div id="our-impact" className="data-section">
           <div className="center">
-            <p className="heading color-white">Our Team</p>
+            <p className="heading ft-size-2 noborder">Our Impact</p>
+          </div>
+          <div className="data-row">
+            <div className="data-cont">
+              <div className="data">4500+</div>
+              <div>
+                <p className="sub-data">Students</p>
+              </div>
+            </div>
+            <div className="data-cont">
+              <div className="data">150+</div>
+              <div>
+                <p className="sub-data">Teachers</p>
+              </div>
+            </div>
+
+            <div className="data-cont">
+              <div className="data">25+</div>
+              <div>
+                <p className="sub-data">Schools</p>
+              </div>
+            </div>
+            <div className="data-cont">
+              <div className="data">30+</div>
+              <div>
+                <p className="sub-data">Events</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="core-team" className="team-section">
+          <div className="center">
+            <p className="heading color-white">Core Team</p>
           </div>
           <div className="team-profile">
             {team.map((p, index) => (
