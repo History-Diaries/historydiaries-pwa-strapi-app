@@ -43,9 +43,9 @@ const Navbar = (props: Props) => {
                       onClick={() => {
                         sessionStorage.removeItem("prevSessionHD");
                       }}
-                      to="/#our-impact"
+                      to="/#our-story"
                     >
-                      Our Impact
+                      Our Story
                     </HashLink>
                   </p>
                 </div>
@@ -55,12 +55,13 @@ const Navbar = (props: Props) => {
                       onClick={() => {
                         sessionStorage.removeItem("prevSessionHD");
                       }}
-                      to="/#our-story"
+                      to="/#our-impact"
                     >
-                      Our Story
+                      Our Impact
                     </HashLink>
                   </p>
                 </div>
+
                 <div className="h-item">
                   <p className="in-item">
                     <HashLink
@@ -168,9 +169,9 @@ const Navbar = (props: Props) => {
                       onClick={() => {
                         sessionStorage.removeItem("prevSessionHD");
                       }}
-                      to="/#our-impact"
+                      to="/#our-story"
                     >
-                      Our Impact
+                      Our Story
                     </HashLink>
                   </div>
                   <div>
@@ -179,11 +180,12 @@ const Navbar = (props: Props) => {
                       onClick={() => {
                         sessionStorage.removeItem("prevSessionHD");
                       }}
-                      to="/#our-story"
+                      to="/#our-impact"
                     >
-                      Our Story
+                      Our Impact
                     </HashLink>
                   </div>
+
                   <div>
                     {" "}
                     <HashLink
