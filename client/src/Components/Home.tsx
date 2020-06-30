@@ -159,7 +159,7 @@ const Home = (props: Props) => {
               <img className="story-icon" src={Scroll} alt="story-icon" />
             </div>
             <div className="story-content">
-              <p className="c-grey mt-2">
+              <p className="c-grey mt-2 fs2">
                 Our journey started after having a small discussion with an 8th
                 grader who said, History is one subject that he hates but on the
                 contrary he likes watching history-based movies, listening to
