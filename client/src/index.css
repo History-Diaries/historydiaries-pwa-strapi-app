@@ -1241,10 +1241,11 @@ strong {
 .t-text {
   font-size: 0.8em;
 }
-.fs2 {
-  font-size: 0.8em;
-}
+
 @media (max-width: 800px) {
+  .fs2 {
+    font-size: 0.8em;
+  }
   .card {
     justify-content: left;
   }
